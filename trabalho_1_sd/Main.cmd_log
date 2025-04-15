@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/home/ise/Xilinx/projetos/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.xst" -ofn "/home/ise/Xilinx/projetos/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.syr" 

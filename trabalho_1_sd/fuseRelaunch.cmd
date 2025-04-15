@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "/home/ise/Xilinx/projetos/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main_isim_beh.exe" -prj "/home/ise/Xilinx/projetos/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main_beh.prj" "work.Main" 
