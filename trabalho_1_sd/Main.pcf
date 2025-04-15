@@ -1,0 +1,16 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Apr 15 18:56:23 2025
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "led_result<0>" LOCATE = SITE "U19" LEVEL 1;
+COMP "led_result<1>" LOCATE = SITE "V19" LEVEL 1;
+COMP "led_result<2>" LOCATE = SITE "V20" LEVEL 1;
+COMP "led_result<3>" LOCATE = SITE "Y22" LEVEL 1;
+COMP "led_carry" LOCATE = SITE "W21" LEVEL 1;
+COMP "vetor_in<0>" LOCATE = SITE "V8" LEVEL 1;
+COMP "vetor_in<1>" LOCATE = SITE "U10" LEVEL 1;
+COMP "vetor_in<2>" LOCATE = SITE "U8" LEVEL 1;
+COMP "vetor_in<3>" LOCATE = SITE "T9" LEVEL 1;
+SCHEMATIC END;
+

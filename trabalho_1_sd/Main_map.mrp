@@ -1,0 +1,232 @@
+Release 14.7 Map P.20131013 (lin64)
+Xilinx Mapping Report File for Design 'Main'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s700an-fgg484-5 -cm area -ir off -pr
+off -c 100 -o Main_map.ncd Main.ngd Main.pcf 
+Target Device  : xc3s700an
+Target Package : fgg484
+Target Speed   : -5
+Mapper Version : spartan3a -- $Revision: 1.55 $
+Mapped Date    : Tue Apr 15 18:56:22 2025
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    1
+Logic Utilization:
+Logic Distribution:
+    Number of Slices containing only related logic:       0 out of       0   0%
+    Number of Slices containing unrelated logic:          0 out of       0   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Number of bonded IOBs:                  9 out of     372    2%
+
+Average Fanout of Non-Clock Nets:                1.00
+
+Peak Memory Usage:  720 MB
+Total REAL time to MAP completion:  1 secs 
+Total CPU time to MAP completion:   1 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current
+version of Xilinx tools will continue to function, but you no longer qualify for
+Xilinx software updates or new releases.
+WARNING:MapLib:701 - Signal bt_clk connected to top level port bt_clk has been
+   removed.
+
+Section 3 - Informational
+-------------------------
+INFO:Security:54 - 'xc3s700an' is a WebPack part.
+INFO:LIT:243 - Logical network result_reg<0> has no load.
+INFO:LIT:395 - The above info message is repeated 8 more times for the following
+   (max. 5 shown):
+   result_reg<1>,
+   result_reg<2>,
+   result_reg<3>,
+   result_reg<4>,
+   y_reg<0>
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  28 block(s) removed
+   1 block(s) optimized away
+  28 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "result_reg<0>" is loadless and has been removed.
+ Loadless block "result_reg_0" (FF) removed.
+  The signal "bt_clk_BUFGP" is loadless and has been removed.
+   Loadless block "bt_clk_BUFGP/BUFG" (CKBUF) removed.
+    The signal "bt_clk_BUFGP/IBUFG" is loadless and has been removed.
+     Loadless block "bt_clk_BUFGP/IBUFG" (CKBUF) removed.
+      The signal "bt_clk" is loadless and has been removed.
+       Loadless block "bt_clk" (PAD) removed.
+  The signal "state_FSM_FFd2" is loadless and has been removed.
+   Loadless block "state_FSM_FFd2" (FF) removed.
+    The signal "state_FSM_FFd3" is loadless and has been removed.
+     Loadless block "state_FSM_FFd3" (FF) removed.
+      The signal "Mshreg_state_FSM_FFd3" is loadless and has been removed.
+  The signal "Madd_result_reg_add0000_lut<0>" is loadless and has been removed.
+   Loadless block "Madd_result_reg_add0000_lut<0>1" (ROM) removed.
+    The signal "x_reg<0>" is loadless and has been removed.
+     Loadless block "x_reg_0" (FF) removed.
+The signal "result_reg<1>" is loadless and has been removed.
+ Loadless block "result_reg_1" (FF) removed.
+  The signal "result_reg_add0000<1>" is loadless and has been removed.
+   Loadless block "Madd_result_reg_add0000_xor<1>11" (ROM) removed.
+    The signal "x_reg<1>" is loadless and has been removed.
+     Loadless block "x_reg_1" (FF) removed.
+The signal "result_reg<2>" is loadless and has been removed.
+ Loadless block "result_reg_2" (FF) removed.
+  The signal "result_reg_add0000<2>" is loadless and has been removed.
+   Loadless block "Madd_result_reg_add0000_xor<2>11" (ROM) removed.
+    The signal "x_reg<2>" is loadless and has been removed.
+     Loadless block "x_reg_2" (FF) removed.
+    The signal "Madd_result_reg_add0000_cy<1>" is loadless and has been removed.
+     Loadless block "Madd_result_reg_add0000_cy<1>11" (ROM) removed.
+The signal "result_reg<3>" is loadless and has been removed.
+ Loadless block "result_reg_3" (FF) removed.
+  The signal "result_reg_add0000<3>" is loadless and has been removed.
+   Loadless block "Madd_result_reg_add0000_xor<3>11" (ROM) removed.
+    The signal "Madd_result_reg_add0000_lut<3>" is loadless and has been removed.
+     Loadless block "Madd_result_reg_add0000_lut<3>1" (ROM) removed.
+      The signal "x_reg<3>" is loadless and has been removed.
+       Loadless block "x_reg_3" (FF) removed.
+The signal "result_reg<4>" is loadless and has been removed.
+ Loadless block "result_reg_4" (FF) removed.
+  The signal "result_reg_add0000<4>" is loadless and has been removed.
+   Loadless block "Madd_result_reg_add0000_xor<4>1" (ROM) removed.
+    The signal "N5" is loadless and has been removed.
+     Loadless block "Madd_result_reg_add0000_xor<4>1_SW0" (ROM) removed.
+The signal "y_reg<0>" is loadless and has been removed.
+ Loadless block "y_reg_0" (FF) removed.
+The signal "y_reg<1>" is loadless and has been removed.
+ Loadless block "y_reg_1" (FF) removed.
+The signal "y_reg<2>" is loadless and has been removed.
+ Loadless block "y_reg_2" (FF) removed.
+The signal "y_reg<3>" is loadless and has been removed.
+ Loadless block "y_reg_3" (FF) removed.
+The signal "Mshreg_state_FSM_FFd3/CE" is sourceless and has been removed.
+Unused block "Mshreg_state_FSM_FFd3/SRL16E" (SRLC16E) removed.
+Unused block "Mshreg_state_FSM_FFd3/VCC" (ONE) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew    | Reg (s)      | Resistor | IBUF/IFD | SUSPEND          |
+|                                    |                  |           |                      | Term  | Strength | Rate    |              |          | Delay    |                  |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| led_carry                          | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW    |              |          | 0 / 0    | 3STATE           |
+| led_result<0>                      | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW    |              |          | 0 / 0    | 3STATE           |
+| led_result<1>                      | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW    |              |          | 0 / 0    | 3STATE           |
+| led_result<2>                      | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW    |              |          | 0 / 0    | 3STATE           |
+| led_result<3>                      | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW    |              |          | 0 / 0    | 3STATE           |
+| vetor_in<0>                        | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
+| vetor_in<1>                        | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
+| vetor_in<2>                        | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
+| vetor_in<3>                        | IBUF             | INPUT     | LVCMOS33             |       |          |         |              |          | 0 / 0    |                  |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

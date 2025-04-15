@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.00 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.18 secs
+Total CPU time to Xst completion: 0.00 secs
  
 --> 
 Reading design: Main.prj
@@ -107,8 +107,10 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "/home/ise/Xilinx/projetos/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd" in Library work.
-Architecture behavioral of Entity main is up to date.
+Compiling vhdl file "/home/ise/VirtualBox/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd" in Library work.
+WARNING:HDLParsers:3530 - Time stamp of file "/home/ise/VirtualBox/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd" is newer than current system time.
+Entity <main> compiled.
+Entity <main> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -120,6 +122,10 @@ Analyzing hierarchy for entity <Main> in library <work> (architecture <behaviora
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <Main> in library <work> (Architecture <behavioral>).
+    Set user-defined property "KEEP =  true" for signal <x_reg>.
+    Set user-defined property "KEEP =  true" for signal <y_reg>.
+    Set user-defined property "KEEP =  true" for signal <result_reg>.
+    Set user-defined property "KEEP =  true" for signal <state>.
 Entity <Main> analyzed. Unit <Main> generated.
 
 
@@ -130,7 +136,9 @@ Entity <Main> analyzed. Unit <Main> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <Main>.
-    Related source file is "/home/ise/Xilinx/projetos/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd".
+    Related source file is "/home/ise/VirtualBox/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd".
+WARNING:Xst:1580 - Signal <y_reg> with a "KEEP" property is assigned but never used. Related logic will not be removed.
+WARNING:Xst:1580 - Signal <result_reg> with a "KEEP" property is assigned but never used. Related logic will not be removed.
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 3                                              |
@@ -142,8 +150,9 @@ Synthesizing Unit <Main>.
     | Encoding           | automatic                                      |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
+WARNING:Xst:697 - FSM extraction is enabled. Signal <state> cannot be preserved.
     Found 5-bit register for signal <result_reg>.
-    Found 5-bit adder for signal <result_reg$add0000> created at line 59.
+    Found 5-bit adder for signal <result_reg$add0000> created at line 61.
     Found 4-bit register for signal <x_reg>.
     Found 4-bit register for signal <y_reg>.
     Summary:
@@ -178,8 +187,10 @@ Optimizing FSM <state/FSM> on signal <state[1:3]> with one-hot encoding.
  01    | 010
  10    | 100
 -------------------
-WARNING:Xst:1426 - The value init of the FF/Latch FFd3 hinder the constant cleaning in the block FSM.
-   You should achieve better results by setting this init to 0.
+
+Synthesizing (advanced) Unit <Main>.
+INFO:Xst:2774 - HDL ADVISOR - KEEP property attached to signal x_reg may hinder XST clustering optimizations.
+Unit <Main> synthesized (advanced).
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -196,8 +207,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1426 - The value init of the FF/Latch FSM_FFd3 hinder the constant cleaning in the block FSM_0-parent.
-   You should achieve better results by setting this init to 0.
 
 Optimizing unit <Main> ...
 
@@ -207,12 +216,18 @@ Found area constraint ratio of 100 (+ 5) on block Main, actual ratio is 0.
 
 Final Macro Processing ...
 
+Processing Unit <Main> :
+	Found 2-bit shift register for signal <state_FSM_FFd3>.
+Unit <Main> processed.
+
 =========================================================================
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 15
- Flip-Flops                                            : 15
+# Registers                                            : 14
+ Flip-Flops                                            : 14
+# Shift Registers                                      : 1
+ 2-bit shift register                                  : 1
 
 =========================================================================
 
@@ -238,24 +253,24 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 14
+# IOs                              : 10
 
 Cell Usage :
 # BELS                             : 9
 #      GND                         : 1
-#      LUT2                        : 1
-#      LUT2_D                      : 1
-#      LUT3                        : 2
-#      LUT3_L                      : 1
+#      LUT2                        : 2
+#      LUT3                        : 3
 #      LUT4                        : 2
 #      LUT4_D                      : 1
 # FlipFlops/Latches                : 15
 #      FD                          : 2
 #      FDE                         : 13
+# Shift Registers                  : 1
+#      SRL16                       : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 13
-#      IBUF                        : 8
+# IO Buffers                       : 9
+#      IBUF                        : 4
 #      OBUF                        : 5
 =========================================================================
 
@@ -264,11 +279,13 @@ Device utilization summary:
 
 Selected Device : 3s700anfgg484-5 
 
- Number of Slices:                       10  out of   5888     0%  
+ Number of Slices:                        9  out of   5888     0%  
  Number of Slice Flip Flops:             15  out of  11776     0%  
- Number of 4 input LUTs:                  8  out of  11776     0%  
- Number of IOs:                          14
- Number of bonded IOBs:                  14  out of    372     3%  
+ Number of 4 input LUTs:                  9  out of  11776     0%  
+    Number used as logic:                 8
+    Number used as Shift registers:       1
+ Number of IOs:                          10
+ Number of bonded IOBs:                  10  out of    372     2%  
  Number of GCLKs:                         1  out of     24     4%  
 
 ---------------------------
@@ -292,7 +309,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-bt_clk                             | BUFGP                  | 15    |
+bt_clk                             | BUFGP                  | 16    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -303,10 +320,10 @@ Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 3.389ns (Maximum Frequency: 295.081MHz)
-   Minimum input arrival time before clock: 1.378ns
-   Maximum output required time after clock: 5.248ns
-   Maximum combinational path delay: No path found
+   Minimum period: 3.331ns (Maximum Frequency: 300.179MHz)
+   Minimum input arrival time before clock: 3.884ns
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 5.789ns
 
 Timing Detail:
 --------------
@@ -314,78 +331,80 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'bt_clk'
-  Clock period: 3.389ns (frequency: 295.081MHz)
-  Total number of paths / destination ports: 43 / 19
+  Clock period: 3.331ns (frequency: 300.179MHz)
+  Total number of paths / destination ports: 31 / 21
 -------------------------------------------------------------------------
-Delay:               3.389ns (Levels of Logic = 3)
-  Source:            y_reg_1 (FF)
+Delay:               3.331ns (Levels of Logic = 3)
+  Source:            x_reg_0 (FF)
   Destination:       result_reg_4 (FF)
   Source Clock:      bt_clk rising
   Destination Clock: bt_clk rising
 
-  Data Path: y_reg_1 to result_reg_4
+  Data Path: x_reg_0 to result_reg_4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              2   0.495   0.488  y_reg_1 (y_reg_1)
-     LUT4_D:I0->O          2   0.561   0.403  Madd_result_reg_add0000_cy<1>11 (Madd_result_reg_add0000_cy<1>)
-     LUT3_L:I2->LO         1   0.561   0.123  Madd_result_reg_add0000_xor<4>1_SW0 (N5)
+     FDE:C->Q              3   0.495   0.453  x_reg_0 (x_reg<0>)
+     LUT4_D:I3->LO         1   0.561   0.123  Madd_result_reg_add0000_cy<1>11 (N7)
+     LUT3:I2->O            1   0.561   0.380  Madd_result_reg_add0000_xor<4>1_SW0 (N5)
      LUT3:I2->O            1   0.561   0.000  Madd_result_reg_add0000_xor<4>1 (result_reg_add0000<4>)
      FDE:D                     0.197          result_reg_4
     ----------------------------------------
-    Total                      3.389ns (2.375ns logic, 1.014ns route)
-                                       (70.1% logic, 29.9% route)
+    Total                      3.331ns (2.375ns logic, 0.956ns route)
+                                       (71.3% logic, 28.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'bt_clk'
-  Total number of paths / destination ports: 8 / 8
+  Total number of paths / destination ports: 22 / 13
 -------------------------------------------------------------------------
-Offset:              1.378ns (Levels of Logic = 1)
-  Source:            vetor_y<0> (PAD)
-  Destination:       y_reg_0 (FF)
+Offset:              3.884ns (Levels of Logic = 4)
+  Source:            vetor_in<0> (PAD)
+  Destination:       result_reg_4 (FF)
   Destination Clock: bt_clk rising
 
-  Data Path: vetor_y<0> to y_reg_0
+  Data Path: vetor_in<0> to result_reg_4
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   0.824   0.357  vetor_y_0_IBUF (vetor_y_0_IBUF)
-     FDE:D                     0.197          y_reg_0
+     IBUF:I->O             6   0.824   0.677  vetor_in_0_IBUF (led_result_0_OBUF)
+     LUT4_D:I0->LO         1   0.561   0.123  Madd_result_reg_add0000_cy<1>11 (N7)
+     LUT3:I2->O            1   0.561   0.380  Madd_result_reg_add0000_xor<4>1_SW0 (N5)
+     LUT3:I2->O            1   0.561   0.000  Madd_result_reg_add0000_xor<4>1 (result_reg_add0000<4>)
+     FDE:D                     0.197          result_reg_4
     ----------------------------------------
-    Total                      1.378ns (1.021ns logic, 0.357ns route)
-                                       (74.1% logic, 25.9% route)
+    Total                      3.884ns (2.704ns logic, 1.180ns route)
+                                       (69.6% logic, 30.4% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'bt_clk'
-  Total number of paths / destination ports: 5 / 5
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Offset:              5.248ns (Levels of Logic = 1)
-  Source:            result_reg_4 (FF)
-  Destination:       led_carry (PAD)
-  Source Clock:      bt_clk rising
+Delay:               5.789ns (Levels of Logic = 2)
+  Source:            vetor_in<2> (PAD)
+  Destination:       led_result<2> (PAD)
 
-  Data Path: result_reg_4 to led_carry
+  Data Path: vetor_in<2> to led_result<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              1   0.495   0.357  result_reg_4 (result_reg_4)
-     OBUF:I->O                 4.396          led_carry_OBUF (led_carry)
+     IBUF:I->O             6   0.824   0.569  vetor_in_2_IBUF (led_result_2_OBUF)
+     OBUF:I->O                 4.396          led_result_2_OBUF (led_result<2>)
     ----------------------------------------
-    Total                      5.248ns (4.891ns logic, 0.357ns route)
-                                       (93.2% logic, 6.8% route)
+    Total                      5.789ns (5.220ns logic, 0.569ns route)
+                                       (90.2% logic, 9.8% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 20.00 secs
-Total CPU time to Xst completion: 18.43 secs
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 0.66 secs
  
 --> 
 
 
-Total memory usage is 608892 kilobytes
+Total memory usage is 609036 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    2 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

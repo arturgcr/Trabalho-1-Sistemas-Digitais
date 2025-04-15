@@ -5,12 +5,19 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="1426" delta="new" >The value init of the FF/Latch <arg fmt="%s" index="1">FFd3</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">FSM</arg>.
-You should achieve better results by setting this init to <arg fmt="%i" index="3">0</arg>.
+<msg type="warning" file="HDLParsers" num="3530" delta="old" >Time stamp of file &quot;<arg fmt="%s" index="1">/home/ise/VirtualBox/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd</arg>&quot; is newer than current system time.
 </msg>
 
-<msg type="warning" file="Xst" num="1426" delta="new" >The value init of the FF/Latch <arg fmt="%s" index="1">FSM_FFd3</arg> hinder the constant cleaning in the block <arg fmt="%s" index="2">FSM_0-parent</arg>.
-You should achieve better results by setting this init to <arg fmt="%i" index="3">0</arg>.
+<msg type="warning" file="Xst" num="1580" delta="old" >Signal &lt;<arg fmt="%s" index="1">y_reg</arg>&gt; with a &quot;<arg fmt="%s" index="2">KEEP</arg>&quot; property is assigned but never used. Related logic will not be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="1580" delta="new" >Signal &lt;<arg fmt="%s" index="1">result_reg</arg>&gt; with a &quot;<arg fmt="%s" index="2">KEEP</arg>&quot; property is assigned but never used. Related logic will not be removed.
+</msg>
+
+<msg type="warning" file="Xst" num="697" delta="old" >FSM extraction is enabled. Signal &lt;<arg fmt="%s" index="1">state</arg>&gt; cannot be preserved.
+</msg>
+
+<msg type="info" file="Xst" num="2774" delta="old" >HDL ADVISOR - <arg fmt="%s" index="1">KEEP</arg> <arg fmt="%s" index="2">property</arg> attached to signal <arg fmt="%s" index="3">x_reg</arg> may hinder XST clustering optimizations.
 </msg>
 
 </messages>
