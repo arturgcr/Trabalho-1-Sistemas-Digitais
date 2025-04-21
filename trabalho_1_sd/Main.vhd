@@ -27,7 +27,8 @@ entity Main is
         vetor_in   : in  STD_LOGIC_VECTOR (3 downto 0);
         bt_clk     : in  STD_LOGIC;
         led_result : out STD_LOGIC_VECTOR (3 downto 0);
-        led_carry  : out STD_LOGIC
+        led_carry  : out STD_LOGIC;
+		  state_out  : out STD_LOGIC_VECTOR (1 downto 0)
     );
 end Main;
 
@@ -38,45 +39,33 @@ architecture Behavioral of Main is
     signal y_reg      : STD_LOGIC_VECTOR (3 downto 0) := (others => '0');
     signal result_reg : signed (4 downto 0) := (others => '0');
     signal state      : integer range 0 to 2 := 0;
-
-    -- Evita otimização pelo Vivado
-    attribute keep : string;
-    attribute keep of x_reg      : signal is "true";
-    attribute keep of y_reg      : signal is "true";
-    attribute keep of result_reg : signal is "true";
-    attribute keep of state      : signal is "true";
-
+	 signal state_out_reg : STD_LOGIC_VECTOR (1 downto 0) := (others => '0');
 begin
 
     process (bt_clk)
     begin
+	 
         if rising_edge(bt_clk) then
             case state is
                 when 0 =>
                     x_reg <= vetor_in; -- armazena X
                     state <= 1;
-
+						  state_out_reg <= "01";
                 when 1 =>
                     y_reg <= vetor_in; -- armazena Y
                     result_reg <= resize(signed(x_reg), 5) + resize(signed(vetor_in), 5);
                     state <= 2;
-
+						  state_out_reg <= "10";
                 when others =>
                     -- aguarda novo ciclo
                     state <= 0;  -- opcional: reiniciar para novo cálculo
+						  state_out_reg <= "00";
             end case;
         end if;
     end process;
 
-    -- Saídas
- --   led_result <= std_logic_vector(result_reg(3 downto 0));
- --   led_carry  <= result_reg(4);
---	 led_result <= std_logic_vector(result_reg(3 downto 0));
---	 led_carry  <= std_logic(result_reg(4));
-
-
-    led_result <= vetor_in;
-    led_carry  <= '0';
-
+    led_result <= std_logic_vector(result_reg(3 downto 0));
+    led_carry  <= result_reg(4);
+	 state_out <= state_out_reg;
 
 end Behavioral;
