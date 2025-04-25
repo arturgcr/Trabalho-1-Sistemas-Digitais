@@ -1,45 +1,30 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    21:26:45 04/21/2025 
--- Design Name: 
--- Module Name:    absolute - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
+use IEEE.STD_LOGIC_ARITH.ALL;       -- use STD_LOGIC_ARITH para aritmética
+use IEEE.STD_LOGIC_UNSIGNED.ALL;    -- permite usar "+" com std_logic_vector
 
 entity absolute is
-    Port ( clk : in  STD_LOGIC;
-           EN : in  STD_LOGIC;
-           A : in  STD_LOGIC_VECTOR (3 downto 0);
-           Y : out  STD_LOGIC_VECTOR (3 downto 0));
+    Port (
+        A : in  STD_LOGIC_VECTOR(3 downto 0);  -- input in two's complement
+        Y : out STD_LOGIC_VECTOR(3 downto 0)   -- output: absolute value
+    );
 end absolute;
 
 architecture Behavioral of absolute is
-
 begin
 
+    process(A)
+        variable temp : STD_LOGIC_VECTOR(3 downto 0);
+    begin
+        if A(3) = '0' then
+            -- A is positive
+            temp := A;
+        else
+            -- A is negative: absolute = NOT A + 1
+            temp := (NOT A) + "0001";
+        end if;
 
-end Behavioral;
+        Y <= temp;
+    end process;
 
+end Behavioral;
