@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_ARITH.ALL;       -- use STD_LOGIC_ARITH para aritmética
-use IEEE.STD_LOGIC_UNSIGNED.ALL;    -- permite usar "+" com std_logic_vector
+use IEEE.STD_LOGIC_ARITH.ALL;       
+use IEEE.STD_LOGIC_UNSIGNED.ALL;    
 
 entity absolute is
     Port (

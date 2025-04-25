@@ -11,36 +11,6 @@
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and_test.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/debouncer.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/main_test.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/sign.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/subtractor.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/two_complement_adder_test.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/twos_complement_adder.vhd&quot; into library work</arg>
-</msg>
-
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd&quot; into library work</arg>
 </msg>
 
