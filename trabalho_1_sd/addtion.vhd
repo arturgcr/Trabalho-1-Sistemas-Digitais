@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity TwoComplementAdderWithInput is
+entity addition is
     Port (
         clk        : in  std_logic;
         reset      : in  std_logic;  -- will now trigger state transition, not async
@@ -13,9 +13,9 @@ entity TwoComplementAdderWithInput is
         overflow   : out std_logic;
         state_out  : out std_logic_vector(1 downto 0)
     );
-end TwoComplementAdderWithInput;
+end addition;
 
-architecture Behavioral of TwoComplementAdderWithInput is
+architecture Behavioral of addition is
     type state_type is (RESET_STATE, IDLE, LOAD_A, LOAD_B, SHOW_RESULT);
     signal state       : state_type := RESET_STATE;
     signal btn_prev    : std_logic := '0';

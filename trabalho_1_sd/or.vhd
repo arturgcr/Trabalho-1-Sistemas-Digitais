@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity or4bit is
+entity orOperation is
     Port (
         clk : in  STD_LOGIC;
         EN  : in  STD_LOGIC;
@@ -9,9 +9,9 @@ entity or4bit is
         B   : in  STD_LOGIC_VECTOR(3 downto 0);
         Y   : out STD_LOGIC_VECTOR(3 downto 0)
     );
-end or4bit;
+end orOperation;
 
-architecture Behavioral of or4bit is
+architecture Behavioral of orOperation is
     signal result : STD_LOGIC_VECTOR(3 downto 0);
 begin
 

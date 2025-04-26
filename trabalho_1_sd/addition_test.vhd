@@ -2,12 +2,12 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity tb_TwoComplementAdderWithInput is
-end tb_TwoComplementAdderWithInput;
+entity tb_addition is
+end tb_addition;
 
-architecture Behavioral of tb_TwoComplementAdderWithInput is
+architecture Behavioral of tb_addition is
     -- Component declaration
-    component TwoComplementAdderWithInput
+    component addition
         Port (
 			  clk        : in  std_logic;
 			  reset      : in  std_logic;
@@ -34,7 +34,7 @@ architecture Behavioral of tb_TwoComplementAdderWithInput is
 
 begin
     -- Instantiate the unit under test
-    UUT: TwoComplementAdderWithInput
+    UUT: addition
         port map (
             clk        => clk_tb,
             reset      => reset_tb,

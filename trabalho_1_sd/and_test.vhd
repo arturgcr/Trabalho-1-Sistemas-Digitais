@@ -1,13 +1,13 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity and4bit_tb is
-end and4bit_tb;
+entity andOperation_tb is
+end andOperation_tb;
 
-architecture Behavioral of and4bit_tb is
+architecture Behavioral of andOperation_tb is
 
     -- Component declaration for the Unit Under Test (UUT)
-    component and4bit
+    component andOperation
         Port (
             clk : in  STD_LOGIC;
             EN  : in  STD_LOGIC;
@@ -27,7 +27,7 @@ architecture Behavioral of and4bit_tb is
 begin
 
     -- Instantiate the Unit Under Test (UUT)
-    uut: and4bit
+    uut: andOperation
         Port map (
             clk => clk_tb,
             EN  => EN_tb,

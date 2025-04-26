@@ -4,7 +4,7 @@
 -- 
 -- Create Date:    21:25:21 04/21/2025 
 -- Design Name: 
--- Module Name:    xor - Behavioral 
+-- Module Name:    xorOperation - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,15 +29,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity xor is
+entity xorOperation is
     Port ( clk : in  STD_LOGIC;
            EN : in  STD_LOGIC;
            A : in  STD_LOGIC_VECTOR (3 downto 0);
            B : in  STD_LOGIC_VECTOR (3 downto 0);
            Y : out  STD_LOGIC_VECTOR (3 downto 0));
-end xor;
+end xorOperation;
 
-architecture Behavioral of xor is
+architecture Behavioral of xorOperation is
 
 begin
 

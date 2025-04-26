@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity and4bit is
+entity andOperation is
     Port (
         clk : in  STD_LOGIC;
         EN  : in  STD_LOGIC;
@@ -9,9 +9,9 @@ entity and4bit is
         B   : in  STD_LOGIC_VECTOR(3 downto 0);
         Y   : out STD_LOGIC_VECTOR(3 downto 0)
     );
-end and4bit;
+end andOperation;
 
-architecture Behavioral of and4bit is
+architecture Behavioral of andOperation is
     signal result : STD_LOGIC_VECTOR(3 downto 0);
 begin
 
