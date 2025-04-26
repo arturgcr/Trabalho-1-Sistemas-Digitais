@@ -2,10 +2,10 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity tb_addition is
-end tb_addition;
+entity addition_tb is
+end addition_tb;
 
-architecture Behavioral of tb_addition is
+architecture Behavioral of addition_tb is
     -- Component declaration
     component addition
         Port (
