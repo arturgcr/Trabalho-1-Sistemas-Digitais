@@ -17,7 +17,6 @@ architecture Behavioral of Main_tb is
     -- Clock period constant
     constant CLK_PERIOD : time := 20 ns;
 begin
-
     -- Instantiate the DUT
     uut: entity work.Main
         port map (
@@ -52,7 +51,7 @@ begin
 
         -- Load operation = AND (operation code "0001")
         switches <= "0001";  
-		  wait for CLK_PERIOD;
+        wait for CLK_PERIOD;
         button <= '1';  -- Press button to load operation
         wait for CLK_PERIOD;
         button <= '0';
@@ -60,7 +59,7 @@ begin
 
         -- Load operand A = "1010"
         switches <= "1010";
-		  wait for CLK_PERIOD;
+        wait for CLK_PERIOD;
         button <= '1';
         wait for CLK_PERIOD;
         button <= '0';
@@ -68,7 +67,7 @@ begin
 
         -- Load operand B = "1100"
         switches <= "1100";
-		  wait for CLK_PERIOD;
+        wait for CLK_PERIOD;
         button <= '1';
         wait for CLK_PERIOD;
         button <= '0';
@@ -84,21 +83,21 @@ begin
         wait for CLK_PERIOD;
 
         switches <= "0010";  -- OR operation
-		  wait for CLK_PERIOD;
+        wait for CLK_PERIOD;
         button <= '1';
         wait for CLK_PERIOD;
         button <= '0';
         wait for CLK_PERIOD;
 
         switches <= "0101"; -- A = 0101
-		  wait for CLK_PERIOD;
+        wait for CLK_PERIOD;
         button <= '1';
         wait for CLK_PERIOD;
         button <= '0';
         wait for CLK_PERIOD;
 
         switches <= "0011"; -- B = 0011
-		  wait for CLK_PERIOD;
+        wait for CLK_PERIOD;
         button <= '1';
         wait for CLK_PERIOD;
         button <= '0';
@@ -114,27 +113,50 @@ begin
         wait for CLK_PERIOD;
 
         switches <= "0011";  -- ADD operation
-		  wait for CLK_PERIOD;
+        wait for CLK_PERIOD;
         button <= '1';
         wait for CLK_PERIOD;
         button <= '0';
         wait for CLK_PERIOD;
 
         switches <= "0101"; -- A = 0101
-		  wait for CLK_PERIOD;
+        wait for CLK_PERIOD;
         button <= '1';
         wait for CLK_PERIOD;
         button <= '0';
         wait for CLK_PERIOD;
 
         switches <= "0011"; -- B = 0011
-		  wait for CLK_PERIOD;
+        wait for CLK_PERIOD;
         button <= '1';
         wait for CLK_PERIOD;
         button <= '0';
         wait for CLK_PERIOD;
 
         -- Y should now be A + B = 8 (1000)
+        wait for 5*CLK_PERIOD;
+
+        -- Reset and test ABSOLUTE operation
+        reset <= '1';
+        wait for CLK_PERIOD;
+        reset <= '0';
+        wait for CLK_PERIOD;
+
+        switches <= "0100";  -- ABSOLUTE operation
+        wait for CLK_PERIOD;
+        button <= '1';
+        wait for CLK_PERIOD;
+        button <= '0';
+        wait for CLK_PERIOD;
+
+        switches <= "1101"; -- A = 1101 (which is -3 if interpreted as signed 4 bits)
+        wait for CLK_PERIOD;
+        button <= '1';
+        wait for CLK_PERIOD;
+        button <= '0';
+        wait for CLK_PERIOD;
+
+        -- Since it's absolute, expected Y = "0011" (3)
         wait for 5*CLK_PERIOD;
 
         -- End simulation

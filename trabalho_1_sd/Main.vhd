@@ -35,6 +35,7 @@ architecture Behavioral of Main is
     signal or_Y         : std_logic_vector(3 downto 0);
     signal add_carry_out: std_logic;
     signal add_overflow : std_logic;
+	 signal absolute_Y : std_logic_vector(3 downto 0);
 
 begin
 
@@ -68,6 +69,12 @@ begin
             B => B,
             Y => or_Y
         );
+	
+	 absolute_inst : entity work.absolute
+		  port map (
+				A => A,
+				Y => absolute_Y
+		  );
 
     -- Button edge detection
     process(clk)
@@ -103,10 +110,17 @@ begin
                         end if;
 
                     when LOAD_A =>
-                        if btn_edge = '1' then
-                            A <= switches;
-                            state <= LOAD_B;
-                        end if;
+							 if btn_edge = '1' then
+								  A <= switches;
+								  case operation is
+										when "0001" | "0010" | "0011" =>
+											 state <= LOAD_B;         -- These need two operands
+										when "0100" =>
+											 state <= SHOW_RESULTS;   -- Single operand operations
+										when others =>
+											 state <= RESET_STATE;
+								  end case;
+							 end if;
 
                     when LOAD_B =>
                         if btn_edge = '1' then
@@ -114,25 +128,29 @@ begin
                             state <= SHOW_RESULTS;
                         end if;
 
-                    when SHOW_RESULTS =>
-                        case operation is
-                            when "0001" => -- AND
-                                Y_reg <= and_Y;
-                                carry_out_reg <= '0';
-                                overflow_reg <= '0';
-                            when "0010" => -- OR
-                                Y_reg <= or_Y;
-                                carry_out_reg <= '0';
-                                overflow_reg <= '0';
-                            when "0011" => -- ADD
-                                Y_reg <= add_Y;
-                                carry_out_reg <= add_carry_out;
-                                overflow_reg <= add_overflow;
-                            when others =>
-                                Y_reg <= (others => '0');
-                                carry_out_reg <= '0';
-                                overflow_reg <= '0';
-                        end case;
+							when SHOW_RESULTS =>
+							  case operation is
+									when "0001" => -- AND
+										 Y_reg <= and_Y;
+										 carry_out_reg <= '0';
+										 overflow_reg <= '0';
+									when "0010" => -- OR
+										 Y_reg <= or_Y;
+										 carry_out_reg <= '0';
+										 overflow_reg <= '0';
+									when "0011" => -- ADD
+										 Y_reg <= add_Y;
+										 carry_out_reg <= add_carry_out;
+										 overflow_reg <= add_overflow;
+									when "0100" => -- absolute
+										 Y_reg <= absolute_Y;
+										 carry_out_reg <= '0';
+										 overflow_reg <= '0';
+									when others =>
+										 Y_reg <= (others => '0');
+										 carry_out_reg <= '0';
+										 overflow_reg <= '0';
+							  end case;
 
                     when others =>
                         state <= RESET_STATE;

@@ -1,4 +1,5 @@
 vhdl isim_temp "or.vhd"
 vhdl isim_temp "and.vhd"
 vhdl isim_temp "addtion.vhd"
+vhdl isim_temp "absolute.vhd"
 vhdl isim_temp "Main.vhd"
