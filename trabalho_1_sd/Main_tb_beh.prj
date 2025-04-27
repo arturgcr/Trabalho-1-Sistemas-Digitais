@@ -1,0 +1,5 @@
+vhdl work "or.vhd"
+vhdl work "and.vhd"
+vhdl work "addtion.vhd"
+vhdl work "Main.vhd"
+vhdl work "main_test.vhd"

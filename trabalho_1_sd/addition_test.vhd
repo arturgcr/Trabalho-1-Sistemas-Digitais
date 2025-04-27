@@ -3,136 +3,69 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
 entity addition_tb is
+-- no ports for a testbench
 end addition_tb;
 
 architecture Behavioral of addition_tb is
-    -- Component declaration
-    component addition
+
+    -- Component declaration of the Unit Under Test (UUT)
+    component addition is
         Port (
-			  clk        : in  std_logic;
-			  reset      : in  std_logic;
-			  button     : in  std_logic;
-			  switches   : in  std_logic_vector(3 downto 0);
-			  leds       : out std_logic_vector(3 downto 0);
-			  carry_out  : out std_logic;
-			  overflow   : out std_logic;
-			  state_out  : out std_logic_vector(1 downto 0)
+            A         : in  std_logic_vector(3 downto 0);
+            B         : in  std_logic_vector(3 downto 0);
+            Y         : out std_logic_vector(3 downto 0);
+            carry_out : out std_logic;
+            overflow  : out std_logic
         );
     end component;
-    -- Testbench signals
-    signal clk_tb        : std_logic := '0';
-    signal reset_tb      : std_logic := '0';
-    signal button_tb     : std_logic := '0';
-    signal switches_tb   : std_logic_vector(3 downto 0) := (others => '0');
-    signal leds_tb       : std_logic_vector(3 downto 0);
-    signal carry_out_tb  : std_logic;
-    signal overflow_tb   : std_logic;
-	 signal state_out_tb  : std_logic_vector(1 downto 0);
 
-    -- Clock period
-    constant clk_period : time := 10 ns;
+    -- Signals to connect to UUT
+    signal A, B       : std_logic_vector(3 downto 0) := (others => '0');
+    signal Y          : std_logic_vector(3 downto 0);
+    signal carry_out  : std_logic;
+    signal overflow   : std_logic;
 
 begin
-    -- Instantiate the unit under test
-    UUT: addition
-        port map (
-            clk        => clk_tb,
-            reset      => reset_tb,
-            button     => button_tb,
-            switches   => switches_tb,
-            leds       => leds_tb,
-            carry_out  => carry_out_tb,
-            overflow   => overflow_tb,
-				state_out  => state_out_tb
-        );
 
-    -- Clock generation
-    clk_process : process
-    begin
-			clk_tb <= '0';
-			wait for clk_period/2;
-			clk_tb <= '1';
-			wait for clk_period/2;
-    end process;
+    -- Instantiate the Unit Under Test (UUT)
+    uut: addition
+        port map (
+            A => A,
+            B => B,
+            Y => Y,
+            carry_out => carry_out,
+            overflow => overflow
+        );
 
     -- Stimulus process
     stim_proc: process
     begin
-        -- Reset
-        reset_tb <= '1';
-        wait for clk_period * 2;
-        reset_tb <= '0';
-        wait for clk_period * 2;
+        -- Test 0 + 0
+        A <= "0000"; B <= "0000";
+        wait for 10 ns;
 
-        -- First number: 5 (0101)
-        switches_tb <= "0101";
-        wait for clk_period;
+        -- Test 3 + 2 = 5
+        A <= "0011"; B <= "0010";
+        wait for 10 ns;
 
-        -- Button press to store first number
-        button_tb <= '1';
-        wait for clk_period;
-        button_tb <= '0';
-        wait for clk_period * 4;
+        -- Test -3 + -2
+        A <= "1101"; B <= "1110";  -- -3 and -2 in 2's complement
+        wait for 10 ns;
 
-        -- Second number: -3 (1101 in 2's complement)
-        switches_tb <= "1101";
-        wait for clk_period;
+        -- Test 7 + 1 (overflow expected)
+        A <= "0111"; B <= "0001";
+        wait for 10 ns;
 
-        -- Button press to trigger addition
-        button_tb <= '1';
-        wait for clk_period;
-        button_tb <= '0';
-        wait for clk_period * 4;
+        -- Test -8 + -1 (overflow expected)
+        A <= "1000"; B <= "1111";
+        wait for 10 ns;
 
-        -- Wait and observe result
-        wait for clk_period * 10;
-		  
-		  -- Reset to IDLE
-        reset_tb <= '1';
-        wait for clk_period * 2;
-        reset_tb <= '0';
-        wait for clk_period * 4;
-		  
-        -- Another test: 7 + 2 = 9 (with overflow)
-        switches_tb <= "0111"; -- 7
-		  wait for clk_period;
-        button_tb <= '1';
-        wait for clk_period;
-        button_tb <= '0';
-        wait for clk_period * 4;
+        -- Test 5 + (-5) = 0
+        A <= "0101"; B <= "1011";
+        wait for 10 ns;
 
-        switches_tb <= "0010"; -- 2
-		  wait for clk_period;
-        button_tb <= '1';
-        wait for clk_period;
-        button_tb <= '0';
-        wait for clk_period * 4;
-		  
-		  -- Reset to IDLE
-        reset_tb <= '1';
-        wait for clk_period * 2;
-        reset_tb <= '0';
-        wait for clk_period * 4;
-		  
-		   -- Another test: 5 - 2 = 3
-        switches_tb <= "0101"; -- 5
-		  wait for clk_period;
-        button_tb <= '1';
-        wait for clk_period;
-        button_tb <= '0';
-        wait for clk_period * 4;
-
-        switches_tb <= "1110"; -- -2
-		  wait for clk_period;
-        button_tb <= '1';
-        wait for clk_period;
-        button_tb <= '0';
-        wait for clk_period * 4;
-
-        -- Wait and observe result
-        wait for clk_period * 10;
-
-        -- End simulation
+        -- End of simulation
         wait;
     end process;
+
 end Behavioral;
