@@ -22,9 +22,115 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="trabalho_1_sd.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_LSO" xil_pn:name=".lso"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Main.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="Main.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="Main.xst"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="Main_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Main_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Main_tb_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="Main_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="Main_tb_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Main_tb_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="absolute_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="absolute_tb_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="addition_tb_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="shift_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="shift_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="sign_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="subtraction_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="tb_sign_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tb_sign_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="tb_subtraction_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tb_subtraction_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="xorOperation_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="xorOperation_tb_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1745759670" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1745759670">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1745769001" xil_pn:in_ck="5138398036958902009" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1745769001">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Main.vhd"/>
+      <outfile xil_pn:name="absolute.vhd"/>
+      <outfile xil_pn:name="absolute_test.vhd"/>
+      <outfile xil_pn:name="addition_test.vhd"/>
+      <outfile xil_pn:name="addtion.vhd"/>
+      <outfile xil_pn:name="and.vhd"/>
+      <outfile xil_pn:name="and_test.vhd"/>
+      <outfile xil_pn:name="debouncer.vhd"/>
+      <outfile xil_pn:name="main_test.vhd"/>
+      <outfile xil_pn:name="or.vhd"/>
+      <outfile xil_pn:name="shift.vhd"/>
+      <outfile xil_pn:name="shift_test.vhd"/>
+      <outfile xil_pn:name="sign.vhd"/>
+      <outfile xil_pn:name="sign_test.vhd"/>
+      <outfile xil_pn:name="subtraction.vhd"/>
+      <outfile xil_pn:name="subtraction_test.vhd"/>
+      <outfile xil_pn:name="xor.vhd"/>
+      <outfile xil_pn:name="xor_test.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1745768619" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-6888078505942706307" xil_pn:start_ts="1745768619">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1745768619" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="8674624757683797733" xil_pn:start_ts="1745768619">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1745759678" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-1110727713095200181" xil_pn:start_ts="1745759678">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1745769006" xil_pn:in_ck="5138398036958902009" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1745769006">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Main.vhd"/>
+      <outfile xil_pn:name="absolute.vhd"/>
+      <outfile xil_pn:name="absolute_test.vhd"/>
+      <outfile xil_pn:name="addition_test.vhd"/>
+      <outfile xil_pn:name="addtion.vhd"/>
+      <outfile xil_pn:name="and.vhd"/>
+      <outfile xil_pn:name="and_test.vhd"/>
+      <outfile xil_pn:name="debouncer.vhd"/>
+      <outfile xil_pn:name="main_test.vhd"/>
+      <outfile xil_pn:name="or.vhd"/>
+      <outfile xil_pn:name="shift.vhd"/>
+      <outfile xil_pn:name="shift_test.vhd"/>
+      <outfile xil_pn:name="sign.vhd"/>
+      <outfile xil_pn:name="sign_test.vhd"/>
+      <outfile xil_pn:name="subtraction.vhd"/>
+      <outfile xil_pn:name="subtraction_test.vhd"/>
+      <outfile xil_pn:name="xor.vhd"/>
+      <outfile xil_pn:name="xor_test.vhd"/>
+    </transform>
+    <transform xil_pn:end_ts="1745769011" xil_pn:in_ck="5138398036958902009" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-9128446577582185333" xil_pn:start_ts="1745769006">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Main_tb_beh.prj"/>
+      <outfile xil_pn:name="Main_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1745769012" xil_pn:in_ck="7707633214243707694" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="6471927177785721406" xil_pn:start_ts="1745769011">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="Main_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+    </transform>
+  </transforms>
 
 </generated_project>

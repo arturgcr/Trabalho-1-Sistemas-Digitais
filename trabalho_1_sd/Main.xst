@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xst"
+elaborate
+-ifn Main.prj
+-ifmt mixed

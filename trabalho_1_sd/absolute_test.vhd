@@ -35,10 +35,7 @@ begin
         A <= "1101"; 
         wait for 20 ns;
 
-        -- Test -8 (1000 -> 1000)
-        -- Note: in 4-bit two's complement, abs(-8) cannot be represented correctly
-        -- because +8 cannot fit in 4 bits, but we'll test to see behavior
-        A <= "1000"; 
+        A <= "1100"; 
         wait for 20 ns;
 
         -- Test +7 (0111 -> 0111)

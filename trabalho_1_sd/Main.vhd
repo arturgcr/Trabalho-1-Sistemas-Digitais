@@ -21,7 +21,7 @@ architecture Behavioral of Main is
     signal btn_prev     : std_logic := '0';
     signal btn_edge     : std_logic := '0';
 
-    signal operation    : std_logic_vector(3 downto 0) := (others => '0');
+    signal operation    : std_logic_vector(3 downto 0) := (others => '1');
     signal A, B         : std_logic_vector(3 downto 0) := (others => '0');
 
     -- Outputs as internal signals
@@ -31,12 +31,16 @@ architecture Behavioral of Main is
 
     -- Signals to connect modules
     signal add_Y        : std_logic_vector(3 downto 0);
+	 signal subtract_Y        : std_logic_vector(3 downto 0);
     signal and_Y        : std_logic_vector(3 downto 0);
     signal or_Y         : std_logic_vector(3 downto 0);
     signal add_carry_out: std_logic;
     signal add_overflow : std_logic;
+	 signal subtract_borrow_out: std_logic;
+    signal subtract_overflow : std_logic;
 	 signal absolute_Y : std_logic_vector(3 downto 0);
 	 signal shift_Y : std_logic_vector(3 downto 0);
+	 signal xor_Y         : std_logic_vector(3 downto 0);
 
 begin
 
@@ -51,6 +55,15 @@ begin
             Y => add_Y,
             carry_out => add_carry_out,
             overflow  => add_overflow
+        );
+		  
+	 subtract_inst : entity work.subtraction
+        port map (
+            A => A,
+            B => B,
+            Y => subtract_Y,
+            borrow_out => subtract_borrow_out,
+            overflow  => subtract_overflow
         );
 
     and_inst : entity work.andOperation
@@ -80,6 +93,13 @@ begin
         B   => B, 
         Y   => shift_Y
     );
+	 
+	 xor_inst : entity work.xorOperation
+    port map (
+        A   => A,
+        B   => B, 
+        Y   => xor_Y
+    );
 
     -- Button edge detection
     process(clk)
@@ -99,7 +119,7 @@ begin
                 state         <= RESET_STATE;
                 A             <= (others => '0');
                 B             <= (others => '0');
-                operation     <= (others => '0');
+                operation     <= (others => '1');
                 Y_reg         <= (others => '0');
                 carry_out_reg <= '0';
                 overflow_reg  <= '0';
@@ -118,9 +138,9 @@ begin
 							 if btn_edge = '1' then
 								  A <= switches;
 								  case operation is
-										when "0001" | "0010" | "0011" | "0101" =>
+										when "0000" | "0001" | "0011" | "0010" | "0110" | "0111" | "0101"  =>
 											 state <= LOAD_B;         -- These need two operands
-										when "0100" =>
+										when "0100" | "1100" =>
 											 state <= SHOW_RESULTS;   -- Single operand operations
 										when others =>
 											 state <= RESET_STATE;
@@ -135,26 +155,34 @@ begin
 
 							when SHOW_RESULTS =>
 							  case operation is
-									when "0001" => -- AND
-										 Y_reg <= and_Y;
-										 carry_out_reg <= '0';
-										 overflow_reg <= '0';
-									when "0010" => -- OR
-										 Y_reg <= or_Y;
-										 carry_out_reg <= '0';
-										 overflow_reg <= '0';
-									when "0011" => -- ADD
+								  when "0000" => -- ADD
 										 Y_reg <= add_Y;
 										 carry_out_reg <= add_carry_out;
 										 overflow_reg <= add_overflow;
-									when "0100" => -- absolute
-										 Y_reg <= absolute_Y;
+									when "0001" => -- SUBTRACT
+										 Y_reg <= subtract_Y;
+										 carry_out_reg <= subtract_borrow_out;
+										 overflow_reg <= subtract_overflow;
+									when "0011" => -- AND
+										 Y_reg <= and_Y;
+										 carry_out_reg <= '0';
+										 overflow_reg <= '0';
+									when "0110" => -- OR
+										 Y_reg <= or_Y;
+										 carry_out_reg <= '0';
+										 overflow_reg <= '0';
+									when "0111" => -- XOR
+										 Y_reg <= xor_Y;
 										 carry_out_reg <= '0';
 										 overflow_reg <= '0';
 									when "0101" => -- Shift
 										Y_reg <= shift_Y;
 										carry_out_reg <= '0';
 										overflow_reg <= '0';
+									when "1100" => -- absolute
+										 Y_reg <= absolute_Y;
+										 carry_out_reg <= '0';
+										 overflow_reg <= '0';
 									when others =>
 										 Y_reg <= (others => '0');
 										 carry_out_reg <= '0';

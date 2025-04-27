@@ -1,0 +1,2 @@
+vhdl isim_temp "subtraction.vhd"
+vhdl isim_temp "subtraction_test.vhd"
