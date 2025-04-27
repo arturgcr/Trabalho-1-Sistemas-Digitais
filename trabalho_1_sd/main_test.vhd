@@ -14,8 +14,55 @@ architecture Behavioral of Main_tb is
     signal Y          : std_logic_vector(3 downto 0);
     signal carry_out  : std_logic;
     signal overflow   : std_logic;
+
+    -- Signals for the operation codes and operands
+    signal op_code    : std_logic_vector(3 downto 0) := (others => '0');
+    signal operand_A  : std_logic_vector(3 downto 0) := (others => '0');
+    signal operand_B  : std_logic_vector(3 downto 0) := (others => '0');
+
     -- Clock period constant
     constant CLK_PERIOD : time := 20 ns;
+
+    -- Procedure to load operation and operands
+    procedure load_and_execute(signal button : inout std_logic;
+                                signal switches : inout std_logic_vector(3 downto 0);
+                                signal operation_code : in std_logic_vector(3 downto 0);
+                                signal operand_A : in std_logic_vector(3 downto 0);
+                                signal operand_B : in std_logic_vector(3 downto 0);
+										  signal reset : inout std_logic) is
+    begin
+        -- Load operation code
+        switches <= operation_code;
+        wait for CLK_PERIOD;
+        button <= '1';
+        wait for CLK_PERIOD;
+        button <= '0';
+        wait for CLK_PERIOD;
+
+        -- Load operand A
+        switches <= operand_A;
+        wait for CLK_PERIOD;
+        button <= '1';
+        wait for CLK_PERIOD;
+        button <= '0';
+        wait for CLK_PERIOD;
+
+        -- Load operand B
+        switches <= operand_B;
+        wait for CLK_PERIOD;
+        button <= '1';
+        wait for CLK_PERIOD;
+        button <= '0';
+        wait for CLK_PERIOD;
+		  
+		  wait for 5*CLK_PERIOD;  -- Wait for result
+		  
+		  reset <= '1';
+        wait for CLK_PERIOD;
+        reset <= '0';
+        wait for CLK_PERIOD;
+    end procedure;
+
 begin
     -- Instantiate the DUT
     uut: entity work.Main
@@ -32,12 +79,10 @@ begin
     -- Clock process
     clk_process :process
     begin
-        while true loop
-            clk <= '0';
-            wait for CLK_PERIOD / 2;
-            clk <= '1';
-            wait for CLK_PERIOD / 2;
-        end loop;
+        clk <= '0';
+        wait for CLK_PERIOD / 2;
+        clk <= '1';
+        wait for CLK_PERIOD / 2;
     end process;
 
     -- Stimulus process
@@ -49,117 +94,49 @@ begin
         reset <= '0';
         wait for CLK_PERIOD;
 
-        -- Load operation = AND (operation code "0001")
-        switches <= "0001";  
+        -- Prepare signals for AND operation
+        op_code <= "0001";  -- AND operation code
+        operand_A <= "1010";
+        operand_B <= "1100";
         wait for CLK_PERIOD;
-        button <= '1';  -- Press button to load operation
-        wait for CLK_PERIOD;
-        button <= '0';
-        wait for CLK_PERIOD;
+        
+        -- Execute AND operation
+        load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 
-        -- Load operand A = "1010"
-        switches <= "1010";
+        op_code <= "0010";  -- OR operation code
+        operand_A <= "0101";
+        operand_B <= "0011";
         wait for CLK_PERIOD;
-        button <= '1';
-        wait for CLK_PERIOD;
-        button <= '0';
-        wait for CLK_PERIOD;
+        
+        -- Execute OR operation
+        load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 
-        -- Load operand B = "1100"
-        switches <= "1100";
+        op_code <= "0011";  -- ADD operation code
+        operand_A <= "0101";
+        operand_B <= "1101";
         wait for CLK_PERIOD;
-        button <= '1';
-        wait for CLK_PERIOD;
-        button <= '0';
-        wait for CLK_PERIOD;
+        
+        -- Execute ADD operation
+        load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 
-        -- Now result should appear: Y = A AND B = "1000"
-        wait for 5*CLK_PERIOD;
+        op_code <= "0100";  -- Absolute operation code
+        operand_A <= "1100";  -- Negative value for absolute
+        operand_B <= "0000";  -- Not used for this operation
+        wait for CLK_PERIOD;
+        
+        -- Execute ABS operation
+        load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 
-        -- Reset and test OR operation
-        reset <= '1';
+        op_code <= "0101";  -- SHIFT operation code
+        operand_A <= "1001";  -- Operand to be shifted
+        operand_B <= "0001";  -- Shift count (1 bit shift)
         wait for CLK_PERIOD;
-        reset <= '0';
-        wait for CLK_PERIOD;
-
-        switches <= "0010";  -- OR operation
-        wait for CLK_PERIOD;
-        button <= '1';
-        wait for CLK_PERIOD;
-        button <= '0';
-        wait for CLK_PERIOD;
-
-        switches <= "0101"; -- A = 0101
-        wait for CLK_PERIOD;
-        button <= '1';
-        wait for CLK_PERIOD;
-        button <= '0';
-        wait for CLK_PERIOD;
-
-        switches <= "0011"; -- B = 0011
-        wait for CLK_PERIOD;
-        button <= '1';
-        wait for CLK_PERIOD;
-        button <= '0';
-        wait for CLK_PERIOD;
-
-        -- Y should now be A OR B = "0111"
-        wait for 5*CLK_PERIOD;
-
-        -- Reset and test ADD operation
-        reset <= '1';
-        wait for CLK_PERIOD;
-        reset <= '0';
-        wait for CLK_PERIOD;
-
-        switches <= "0011";  -- ADD operation
-        wait for CLK_PERIOD;
-        button <= '1';
-        wait for CLK_PERIOD;
-        button <= '0';
-        wait for CLK_PERIOD;
-
-        switches <= "0101"; -- A = 0101
-        wait for CLK_PERIOD;
-        button <= '1';
-        wait for CLK_PERIOD;
-        button <= '0';
-        wait for CLK_PERIOD;
-
-        switches <= "0011"; -- B = 0011
-        wait for CLK_PERIOD;
-        button <= '1';
-        wait for CLK_PERIOD;
-        button <= '0';
-        wait for CLK_PERIOD;
-
-        -- Y should now be A + B = 8 (1000)
-        wait for 5*CLK_PERIOD;
-
-        -- Reset and test ABSOLUTE operation
-        reset <= '1';
-        wait for CLK_PERIOD;
-        reset <= '0';
-        wait for CLK_PERIOD;
-
-        switches <= "0100";  -- ABSOLUTE operation
-        wait for CLK_PERIOD;
-        button <= '1';
-        wait for CLK_PERIOD;
-        button <= '0';
-        wait for CLK_PERIOD;
-
-        switches <= "1101"; -- A = 1101 (which is -3 if interpreted as signed 4 bits)
-        wait for CLK_PERIOD;
-        button <= '1';
-        wait for CLK_PERIOD;
-        button <= '0';
-        wait for CLK_PERIOD;
-
-        -- Since it's absolute, expected Y = "0011" (3)
-        wait for 5*CLK_PERIOD;
+        
+        -- Execute SHIFT operation
+        load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 
         -- End simulation
         wait;
     end process;
+
 end Behavioral;

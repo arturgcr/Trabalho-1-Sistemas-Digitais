@@ -8,7 +8,6 @@
 --     - If B = "0000", A is shifted left by 1 bit.
 --     - If B = "0001", A is shifted right by 1 bit.
 --     - Otherwise, A is unchanged.
---     The shift is triggered by the rising edge of the clock and only when EN = '1'.
 --     The output Y represents the shifted value and is intended to be connected to 4 LEDs.
 
 library IEEE;
@@ -18,7 +17,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity shift is
     Port (
         clk : in  STD_LOGIC;                     -- Clock input
-        EN  : in  STD_LOGIC;                     -- Enable signal (operation happens only if EN = '1')
         A   : in  STD_LOGIC_VECTOR(3 downto 0);  -- 4-bit input to be shifted
         B   : in  STD_LOGIC_VECTOR(3 downto 0);  -- 4-bit control input to define the shift direction
         Y   : out STD_LOGIC_VECTOR(3 downto 0)   -- 4-bit output with the result (connect to LEDs)
@@ -34,7 +32,6 @@ begin
     process(clk)
     begin
         if rising_edge(clk) then
-            if EN = '1' then  -- Only perform shift if enabled
                 if B = "0000" then
                     -- Shift left: discard the MSB, insert '0' in the LSB
                     result <= A(2 downto 0) & '0';
@@ -45,7 +42,6 @@ begin
                     -- For any other value of B, keep A unchanged
                     result <= A;
                 end if;
-            end if;
         end if;
     end process;
 

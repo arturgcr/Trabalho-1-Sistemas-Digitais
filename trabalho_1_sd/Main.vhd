@@ -36,15 +36,14 @@ architecture Behavioral of Main is
     signal add_carry_out: std_logic;
     signal add_overflow : std_logic;
 	 signal absolute_Y : std_logic_vector(3 downto 0);
+	 signal shift_Y : std_logic_vector(3 downto 0);
 
 begin
 
-    -- Assign internal registers to entity outputs
     Y         <= Y_reg;
     carry_out <= carry_out_reg;
     overflow  <= overflow_reg;
 
-    -- Instantiate addition module
     add_inst : entity work.addition
         port map (
             A => A,
@@ -54,7 +53,6 @@ begin
             overflow  => add_overflow
         );
 
-    -- Instantiate andOperation module
     and_inst : entity work.andOperation
         port map (
             A => A,
@@ -62,7 +60,6 @@ begin
             Y => and_Y
         );
 
-    -- Instantiate orOperation module
     or_inst : entity work.orOperation
         port map (
             A => A,
@@ -75,6 +72,14 @@ begin
 				A => A,
 				Y => absolute_Y
 		  );
+		  
+	 shift_inst : entity work.shift
+    port map (
+        clk => clk,
+        A   => A,
+        B   => B, 
+        Y   => shift_Y
+    );
 
     -- Button edge detection
     process(clk)
@@ -113,7 +118,7 @@ begin
 							 if btn_edge = '1' then
 								  A <= switches;
 								  case operation is
-										when "0001" | "0010" | "0011" =>
+										when "0001" | "0010" | "0011" | "0101" =>
 											 state <= LOAD_B;         -- These need two operands
 										when "0100" =>
 											 state <= SHOW_RESULTS;   -- Single operand operations
@@ -146,6 +151,10 @@ begin
 										 Y_reg <= absolute_Y;
 										 carry_out_reg <= '0';
 										 overflow_reg <= '0';
+									when "0101" => -- Shift
+										Y_reg <= shift_Y;
+										carry_out_reg <= '0';
+										overflow_reg <= '0';
 									when others =>
 										 Y_reg <= (others => '0');
 										 carry_out_reg <= '0';

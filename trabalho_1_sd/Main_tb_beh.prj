@@ -1,3 +1,4 @@
+vhdl work "shift.vhd"
 vhdl work "or.vhd"
 vhdl work "and.vhd"
 vhdl work "addtion.vhd"
