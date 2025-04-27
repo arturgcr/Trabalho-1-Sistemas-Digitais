@@ -1,46 +1,46 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date:    21:25:21 04/21/2025 
--- Design Name: 
--- Module Name:    xorOperation - Behavioral 
--- Project Name: 
--- Target Devices: 
--- Tool versions: 
--- Description: 
---
--- Dependencies: 
---
--- Revision: 
--- Revision 0.01 - File Created
--- Additional Comments: 
---
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity xorOperation is
-    Port ( clk : in  STD_LOGIC;
-           EN : in  STD_LOGIC;
-           A : in  STD_LOGIC_VECTOR (3 downto 0);
-           B : in  STD_LOGIC_VECTOR (3 downto 0);
-           Y : out  STD_LOGIC_VECTOR (3 downto 0));
+    Port (
+        clk      : in  std_logic;
+        button   : in  std_logic;
+        switches : in  std_logic_vector(3 downto 0);
+        leds     : out std_logic_vector(3 downto 0)
+    );
 end xorOperation;
 
 architecture Behavioral of xorOperation is
+    signal btn_prev : std_logic := '0';
+    signal btn_edge : std_logic := '0';
+    signal A, B     : std_logic_vector(3 downto 0) := (others => '0');
+    signal loaded_A : boolean := false;
 
 begin
 
+    -- Button edge detection (single process implementation)
 
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            -- Detect button press edge
+            btn_edge <= button and not btn_prev;
+            btn_prev <= button;
+
+            -- Main operation logic
+
+            if btn_edge = '1' then
+                if not loaded_A then
+                    A <= switches;
+                    loaded_A <= true;
+
+                else
+                    B <= switches;
+                    leds <= A xor B;  -- Perform XOR when both inputs are loaded
+                    loaded_A <= false; -- Ready for new operation
+
+                end if;
+            end if;
+        end if;
+    end process;
 end Behavioral;
-
