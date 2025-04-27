@@ -1,7 +1,0 @@
-vhdl work "shift.vhd"
-vhdl work "or.vhd"
-vhdl work "and.vhd"
-vhdl work "addtion.vhd"
-vhdl work "absolute.vhd"
-vhdl work "Main.vhd"
-vhdl work "main_test.vhd"

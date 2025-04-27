@@ -10,7 +10,6 @@ entity orOperation is
 end orOperation;
 
 architecture Behavioral of orOperation is
-    signal result : STD_LOGIC_VECTOR(3 downto 0);
 begin
 
     Y <= A or B;

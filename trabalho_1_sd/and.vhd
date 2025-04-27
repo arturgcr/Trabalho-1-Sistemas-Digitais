@@ -10,7 +10,6 @@ entity andOperation is
 end andOperation;
 
 architecture Behavioral of andOperation is
-    signal result : STD_LOGIC_VECTOR(3 downto 0);
 begin
     Y <= A and B;
 end Behavioral;

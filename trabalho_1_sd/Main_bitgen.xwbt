@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=/home/ise/VirtualBox/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.ncd
-OUTFILE=/home/ise/VirtualBox/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.bit
+INFILE=C:\Users\rafam\Documents\Trabalho-1-Sistemas-Digitais\trabalho_1_sd\Main.ncd
+OUTFILE=C:\Users\rafam\Documents\Trabalho-1-Sistemas-Digitais\trabalho_1_sd\Main.bit
 FAMILY=Spartan3A and Spartan3AN
 PART=xc3s700an-5fgg484
-WORKINGDIR=/home/ise/VirtualBox/Trabalho-1-Sistemas-Digitais/trabalho_1_sd
-LICENSE=ISE
-USER_INFO=8416_11442_1478797146_620
+WORKINGDIR=C:\Users\rafam\Documents\Trabalho-1-Sistemas-Digitais\trabalho_1_sd
+LICENSE=WebPack
+USER_INFO=213400236_0_0_839

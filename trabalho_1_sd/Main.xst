@@ -1,5 +1,0 @@
-set -tmpdir "/home/ise/VirtualBox/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xst/projnav.tmp"
-set -xsthdpdir "/home/ise/VirtualBox/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xst"
-elaborate
--ifn Main.prj
--ifmt mixed
