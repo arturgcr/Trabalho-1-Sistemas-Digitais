@@ -1,5 +1,6 @@
 vhdl isim_temp "xor.vhd"
 vhdl isim_temp "subtraction.vhd"
+vhdl isim_temp "sign.vhd"
 vhdl isim_temp "shift.vhd"
 vhdl isim_temp "or.vhd"
 vhdl isim_temp "debouncer.vhd"

@@ -14,6 +14,8 @@ architecture Behavioral of Main_tb is
     signal Y          : std_logic_vector(3 downto 0);
     signal carry_out  : std_logic;
     signal overflow   : std_logic;
+	 signal zero  : std_logic;
+    signal negative   : std_logic;
 
     -- Signals for the operation codes and operands
     signal op_code    : std_logic_vector(3 downto 0) := (others => '0');
@@ -77,7 +79,9 @@ begin
             switches   => switches,
             Y          => Y,
             carry_out  => carry_out,
-            overflow   => overflow
+            overflow   => overflow,
+				zero  => zero,
+            negative   => negative
         );
 
     -- Clock process
@@ -115,7 +119,7 @@ begin
 
         op_code <= "0000";  -- ADD operation code
         operand_A <= "0101";
-        operand_B <= "1101";
+        operand_B <= "0100";
         wait for WAIT_TIME;
         -- Execute ADD operation
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
@@ -142,8 +146,15 @@ begin
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 		  
 		  op_code <= "0001";  -- subtraction operation code
-        operand_A <= "1101";
-        operand_B <= "1011"; 
+        operand_A <= "1101"; -- -3
+        operand_B <= "0011"; -- +3
+        wait for WAIT_TIME;
+        -- Execute subtraction operation
+        load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
+		  
+		  op_code <= "0100";  -- sign operation code
+        operand_A <= "1010"; -- -6
+        operand_B <= "0000"; -- not used
         wait for WAIT_TIME;
         -- Execute subtraction operation
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);

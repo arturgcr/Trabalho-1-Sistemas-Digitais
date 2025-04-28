@@ -23,9 +23,9 @@ begin
    -- Perform subtraction: A - B
 	difference <= resize(A_signed, 5) - resize(B_signed, 5);
 	Y <= std_logic_vector(difference(3 downto 0));
-	borrow_out <= difference(4);  -- Borrow occurs when MSB is 1
+	borrow_out <= difference(4); 
 
 	-- Overflow detection for signed subtraction
-	overflow <= (A_signed(3) and not B_signed(3) and difference(3)) or
-					(not A_signed(3) and B_signed(3) and not difference(3));
+	overflow <= (A_signed(3) and not B_signed(3) and not difference(3)) or
+					(not A_signed(3) and B_signed(3) and difference(3));
 end Behavioral;

@@ -10,7 +10,9 @@ entity Main is
         switches : in  std_logic_vector(3 downto 0);
         Y        : out std_logic_vector(3 downto 0);
         carry_out : out std_logic;
-        overflow  : out std_logic
+        overflow  : out std_logic;
+		  zero : out std_logic;
+        negative: out std_logic
     );
 end Main;
 
@@ -27,12 +29,16 @@ architecture Behavioral of Main is
     signal Y_reg        : std_logic_vector(3 downto 0) := (others => '0');
     signal carry_out_reg: std_logic := '0';
     signal overflow_reg : std_logic := '0';
+	 signal zero_reg: std_logic := '0';
+    signal negative_reg : std_logic := '0';
 
     -- Signals to connect modules
     signal add_Y        : std_logic_vector(3 downto 0);
 	 signal subtract_Y        : std_logic_vector(3 downto 0);
     signal and_Y        : std_logic_vector(3 downto 0);
     signal or_Y         : std_logic_vector(3 downto 0);
+	 signal sign_flags_Y         : std_logic_vector(3 downto 0);
+	 signal sign_operation_Y         : std_logic_vector(3 downto 0);
     signal add_carry_out: std_logic;
     signal add_overflow : std_logic;
 	 signal subtract_borrow_out: std_logic;
@@ -48,6 +54,8 @@ begin
     Y         <= Y_reg;
     carry_out <= carry_out_reg;
     overflow  <= overflow_reg;
+	 zero <= zero_reg;
+    negative  <= negative_reg;
 	
 	 debouncer_btn_inst : entity work.debouncer
         port map (
@@ -115,6 +123,18 @@ begin
         B   => B, 
         Y   => xor_Y
     );
+	 
+	 sign_flags_inst : entity work.sign
+    port map (
+        A   => Y_reg,
+        Y   => sign_flags_Y
+    );
+	 
+	 sign_operation_inst : entity work.sign
+    port map (
+        A   => A,
+        Y   => sign_operation_Y
+    );
 
     -- State Transition Logic
     process(clk)
@@ -128,6 +148,8 @@ begin
                 Y_reg         <= (others => '0');
                 carry_out_reg <= '0';
                 overflow_reg  <= '0';
+					 zero_reg <= '0';
+                negative_reg  <= '0';
             else
                 case state is
                     when RESET_STATE =>
@@ -164,34 +186,56 @@ begin
 										 Y_reg <= add_Y;
 										 carry_out_reg <= add_carry_out;
 										 overflow_reg <= add_overflow;
+										 zero_reg <= sign_flags_Y(0);
+										 negative_reg <= sign_flags_Y(2);
 									when "0001" => -- SUBTRACT
 										 Y_reg <= subtract_Y;
 										 carry_out_reg <= subtract_borrow_out;
 										 overflow_reg <= subtract_overflow;
+										 zero_reg <= sign_flags_Y(0);
+										 negative_reg <= sign_flags_Y(2);
 									when "0011" => -- AND
 										 Y_reg <= and_Y;
 										 carry_out_reg <= '0';
 										 overflow_reg <= '0';
+										 zero_reg <= sign_flags_Y(0);
+										 negative_reg <= sign_flags_Y(2);
 									when "0110" => -- OR
 										 Y_reg <= or_Y;
 										 carry_out_reg <= '0';
 										 overflow_reg <= '0';
+										 zero_reg <= sign_flags_Y(0);
+										 negative_reg <= sign_flags_Y(2);
 									when "0111" => -- XOR
 										 Y_reg <= xor_Y;
 										 carry_out_reg <= '0';
 										 overflow_reg <= '0';
+										 zero_reg <= sign_flags_Y(0);
+										 negative_reg <= sign_flags_Y(2);
 									when "0101" => -- Shift
 										Y_reg <= shift_Y;
 										carry_out_reg <= '0';
 										overflow_reg <= '0';
+										zero_reg <= sign_flags_Y(0);
+										negative_reg <= sign_flags_Y(2);
+									when "0100" => -- Sign
+										Y_reg <= sign_operation_Y;
+										carry_out_reg <= '0';
+										overflow_reg <= '0';
+										zero_reg <= '0';
+										negative_reg <= '0';
 									when "1100" => -- absolute
 										 Y_reg <= absolute_Y;
 										 carry_out_reg <= '0';
 										 overflow_reg <= '0';
+										 zero_reg <= sign_flags_Y(0);
+										 negative_reg <= sign_flags_Y(2);
 									when others =>
 										 Y_reg <= (others => '0');
 										 carry_out_reg <= '0';
 										 overflow_reg <= '0';
+										 zero_reg <= sign_flags_Y(0);
+										 negative_reg <= sign_flags_Y(2);
 							  end case;
 
                     when others =>
