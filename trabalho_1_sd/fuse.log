@@ -7,6 +7,7 @@ Parsing VHDL file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalh
 Parsing VHDL file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/subtraction.vhd" into library work
 Parsing VHDL file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd" into library work
 Parsing VHDL file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd" into library work
+Parsing VHDL file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/debouncer.vhd" into library work
 Parsing VHDL file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd" into library work
 Parsing VHDL file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd" into library work
 Parsing VHDL file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd" into library work
@@ -19,6 +20,7 @@ Compiling package std_logic_1164
 Compiling package numeric_std
 Compiling package std_logic_arith
 Compiling package std_logic_unsigned
+Compiling architecture behavioral of entity debouncer [debouncer_default]
 Compiling architecture behavioral of entity addition [addition_default]
 Compiling architecture behavioral of entity subtraction [subtraction_default]
 Compiling architecture behavioral of entity andOperation [andoperation_default]
@@ -29,8 +31,8 @@ Compiling architecture behavioral of entity xorOperation [xoroperation_default]
 Compiling architecture behavioral of entity Main [main_default]
 Compiling architecture behavioral of entity main_tb
 Time Resolution for simulation is 1ps.
-Waiting for 6 sub-compilation(s) to finish...
-Compiled 22 VHDL Units
+Waiting for 7 sub-compilation(s) to finish...
+Compiled 24 VHDL Units
 Built simulation executable C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main_tb_isim_beh.exe
-Fuse Memory Usage: 37648 KB
-Fuse CPU Usage: 858 ms
+Fuse Memory Usage: 37664 KB
+Fuse CPU Usage: 718 ms

@@ -22,6 +22,7 @@ architecture Behavioral of Main_tb is
 
     -- Clock period constant
     constant CLK_PERIOD : time := 20 ns;
+	 constant WAIT_TIME : time :=15 ms;
 
     -- Procedure to load operation and operands
     procedure load_and_execute(signal button : inout std_logic;
@@ -33,36 +34,36 @@ architecture Behavioral of Main_tb is
 		begin
 			 -- Load operation code
 			 switches <= operation_code;
-			 wait for CLK_PERIOD;
+			 wait for WAIT_TIME;
 			 button <= '1';
-			 wait for CLK_PERIOD;
+			 wait for WAIT_TIME;
 			 button <= '0';
-			 wait for CLK_PERIOD;
+			 wait for WAIT_TIME;
 
 			 -- Load operand A
 			 switches <= operand_A;
-			 wait for CLK_PERIOD;
+			 wait for WAIT_TIME;
 			 button <= '1';
-			 wait for CLK_PERIOD;
+			 wait for WAIT_TIME;
 			 button <= '0';
-			 wait for CLK_PERIOD;
+			 wait for WAIT_TIME;
 
 			 -- Load operand B only if operation_code is not "0100" or "1100"
 			 if (operation_code /= "0100") and (operation_code /= "1100") then
 				  switches <= operand_B;
-				  wait for CLK_PERIOD;
+				  wait for WAIT_TIME;
 				  button <= '1';
-				  wait for CLK_PERIOD;
+				  wait for WAIT_TIME;
 				  button <= '0';
-				  wait for CLK_PERIOD;
+				  wait for WAIT_TIME;
 			 end if;
 			 
-			 wait for 5*CLK_PERIOD;  -- Wait for result
+			 wait for 2*WAIT_TIME;  -- Wait for result
 			 
 			 reset <= '1';
-			 wait for CLK_PERIOD;
+			 wait for WAIT_TIME;
 			 reset <= '0';
-			 wait for CLK_PERIOD;
+			 wait for WAIT_TIME;
 		end procedure;
 
 
@@ -93,57 +94,57 @@ begin
     begin
         -- Initial reset
         reset <= '1';
-        wait for 2*CLK_PERIOD;
+        wait for WAIT_TIME;
         reset <= '0';
-        wait for CLK_PERIOD;
+        wait for WAIT_TIME;
 
         -- Prepare signals for AND operation
         op_code <= "0011";  -- AND operation code
         operand_A <= "1010";
         operand_B <= "1100";
-        wait for CLK_PERIOD;
+        wait for WAIT_TIME;
         -- Execute AND operation
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 
         op_code <= "0110";  -- OR operation code
         operand_A <= "0101";
         operand_B <= "0011";
-        wait for CLK_PERIOD;  
+        wait for WAIT_TIME;  
         -- Execute OR operation
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 
         op_code <= "0000";  -- ADD operation code
         operand_A <= "0101";
         operand_B <= "1101";
-        wait for CLK_PERIOD;
+        wait for WAIT_TIME;
         -- Execute ADD operation
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 
         op_code <= "1100";  -- Absolute operation code
         operand_A <= "1100";  -- Negative value for absolute
         operand_B <= "0000";  -- Not used for this operation
-        wait for CLK_PERIOD;
+        wait for WAIT_TIME;
         -- Execute ABS operation
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 		  
         op_code <= "0101";  -- SHIFT operation code
         operand_A <= "1001";  -- Operand to be shifted
         operand_B <= "0001";  -- Shift count (1 bit shift)
-        wait for CLK_PERIOD;
+        wait for WAIT_TIME;
         -- Execute SHIFT operation
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 		  
 		  op_code <= "0111";  -- XOR operation code
         operand_A <= "1001";
         operand_B <= "0001"; 
-        wait for CLK_PERIOD;
+        wait for WAIT_TIME;
         -- Execute XOR operation
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 		  
 		  op_code <= "0001";  -- subtraction operation code
         operand_A <= "1101";
         operand_B <= "1011"; 
-        wait for CLK_PERIOD;
+        wait for WAIT_TIME;
         -- Execute subtraction operation
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 

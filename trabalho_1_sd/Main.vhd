@@ -19,7 +19,6 @@ architecture Behavioral of Main is
 
     signal state        : state_type := RESET_STATE;
     signal btn_prev     : std_logic := '0';
-    signal btn_edge     : std_logic := '0';
 
     signal operation    : std_logic_vector(3 downto 0) := (others => '1');
     signal A, B         : std_logic_vector(3 downto 0) := (others => '0');
@@ -41,13 +40,29 @@ architecture Behavioral of Main is
 	 signal absolute_Y : std_logic_vector(3 downto 0);
 	 signal shift_Y : std_logic_vector(3 downto 0);
 	 signal xor_Y         : std_logic_vector(3 downto 0);
+	 signal debounced_btn : STD_LOGIC;
+	 signal debounced_reset : STD_LOGIC;
 
 begin
 
     Y         <= Y_reg;
     carry_out <= carry_out_reg;
     overflow  <= overflow_reg;
-
+	
+	 debouncer_btn_inst : entity work.debouncer
+        port map (
+            clk     => clk,
+            btn_in  => button,
+            btn_out => debounced_btn
+        );
+		  
+	 debouncer_reset_inst : entity work.debouncer
+	  port map (
+			clk     => clk,
+			btn_in  => reset,
+			btn_out => debounced_reset
+	  );
+		
     add_inst : entity work.addition
         port map (
             A => A,
@@ -101,21 +116,11 @@ begin
         Y   => xor_Y
     );
 
-    -- Button edge detection
-    process(clk)
-    begin
-        if rising_edge(clk) then
-            btn_edge <= button and not btn_prev;
-            btn_prev <= button;
-        end if;
-    end process;
-
     -- State Transition Logic
     process(clk)
     begin
         if rising_edge(clk) then
-            if reset = '1' then
-                -- Immediate reset: clear everything
+            if debounced_reset = '1' then
                 state         <= RESET_STATE;
                 A             <= (others => '0');
                 B             <= (others => '0');
@@ -129,13 +134,13 @@ begin
                         state <= LOAD_OPERATION;
 
                     when LOAD_OPERATION =>
-                        if btn_edge = '1' then
+                        if debounced_btn = '1' then
                             operation <= switches;
                             state <= LOAD_A;
                         end if;
 
                     when LOAD_A =>
-							 if btn_edge = '1' then
+							 if debounced_btn = '1' then
 								  A <= switches;
 								  case operation is
 										when "0000" | "0001" | "0011" | "0010" | "0110" | "0111" | "0101"  =>
@@ -148,7 +153,7 @@ begin
 							 end if;
 
                     when LOAD_B =>
-                        if btn_edge = '1' then
+                        if debounced_btn = '1' then
                             B <= switches;
                             state <= SHOW_RESULTS;
                         end if;
