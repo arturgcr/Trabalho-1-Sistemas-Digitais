@@ -1,29 +1,66 @@
 
 # PlanAhead Generated IO constraints 
 
-NET "led_result[3]" IOSTANDARD = LVCMOS33;
-NET "led_result[2]" IOSTANDARD = LVCMOS33;
-NET "led_result[1]" IOSTANDARD = LVCMOS33;
-NET "led_result[0]" IOSTANDARD = LVCMOS33;
+NET "switches[3]" IOSTANDARD = LVCMOS33;
+NET "switches[2]" IOSTANDARD = LVCMOS33;
+NET "switches[1]" IOSTANDARD = LVCMOS33;
+NET "switches[0]" IOSTANDARD = LVCMOS33;
+NET "Y[3]" IOSTANDARD = LVCMOS33;
+NET "Y[2]" IOSTANDARD = LVCMOS33;
+NET "Y[1]" IOSTANDARD = LVCMOS33;
+NET "Y[0]" IOSTANDARD = LVCMOS33;
 
 # PlanAhead Generated physical constraints 
 
-NET "bt_clk" LOC = T15;
-NET "led_carry" LOC = W21;
-NET "vetor_in[3]" LOC = T9;
-NET "vetor_in[2]" LOC = U8;
-NET "vetor_in[1]" LOC = U10;
-NET "vetor_in[0]" LOC = V8;
-NET "led_result[3]" LOC = Y22;
-NET "led_result[2]" LOC = V20;
-NET "led_result[1]" LOC = V19;
-NET "led_result[0]" LOC = U19;
+NET "switches[3]" LOC = T9;
+NET "switches[2]" LOC = U8;
+NET "switches[1]" LOC = U10;
+NET "switches[0]" LOC = V8;
+NET "Y[3]" LOC = U19;
+NET "Y[2]" LOC = U20;
+NET "Y[1]" LOC = T19;
+NET "Y[0]" LOC = R20;
+NET "button" LOC = T15;
 
 # PlanAhead Generated IO constraints 
 
-NET "vetor_in[3]" IOSTANDARD = LVCMOS33;
-NET "vetor_in[2]" IOSTANDARD = LVCMOS33;
-NET "vetor_in[1]" IOSTANDARD = LVCMOS33;
-NET "vetor_in[0]" IOSTANDARD = LVCMOS33;
-NET "bt_clk" IOSTANDARD = LVCMOS33;
-NET "led_carry" IOSTANDARD = LVCMOS33;
+NET "button" IOSTANDARD = LVCMOS33;
+
+# PlanAhead Generated physical constraints 
+
+NET "carry_out" LOC = V19;
+
+# PlanAhead Generated IO constraints 
+
+NET "carry_out" IOSTANDARD = LVCMOS33;
+NET "clk" IOSTANDARD = LVCMOS33;
+
+# PlanAhead Generated physical constraints 
+
+NET "clk" LOC = E12;
+NET "negative" LOC = V20;
+
+# PlanAhead Generated IO constraints 
+
+NET "negative" IOSTANDARD = LVCMOS33;
+
+# PlanAhead Generated physical constraints 
+
+NET "overflow" LOC = Y22;
+
+# PlanAhead Generated IO constraints 
+
+NET "overflow" IOSTANDARD = LVCMOS33;
+NET "reset" IOSTANDARD = LVCMOS33;
+
+# PlanAhead Generated physical constraints 
+
+NET "zero" LOC = W21;
+
+# PlanAhead Generated IO constraints 
+
+NET "zero" IOSTANDARD = LVCMOS33;
+
+# PlanAhead Generated physical constraints 
+
+NET "reset" LOC = T16;

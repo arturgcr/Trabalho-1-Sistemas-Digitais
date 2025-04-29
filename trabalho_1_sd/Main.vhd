@@ -156,12 +156,14 @@ begin
                         state <= LOAD_OPERATION;
 
                     when LOAD_OPERATION =>
+								Y_reg <= switches;
                         if debounced_btn = '1' then
                             operation <= switches;
                             state <= LOAD_A;
                         end if;
 
                     when LOAD_A =>
+							 Y_reg <= switches;
 							 if debounced_btn = '1' then
 								  A <= switches;
 								  case operation is
@@ -175,6 +177,7 @@ begin
 							 end if;
 
                     when LOAD_B =>
+								Y_reg <= switches;
                         if debounced_btn = '1' then
                             B <= switches;
                             state <= SHOW_RESULTS;
@@ -198,26 +201,26 @@ begin
 										 Y_reg <= and_Y;
 										 carry_out_reg <= '0';
 										 overflow_reg <= '0';
-										 zero_reg <= sign_flags_Y(0);
-										 negative_reg <= sign_flags_Y(2);
+										 zero_reg <= '0';
+										 negative_reg <= '0';
 									when "0110" => -- OR
 										 Y_reg <= or_Y;
 										 carry_out_reg <= '0';
 										 overflow_reg <= '0';
-										 zero_reg <= sign_flags_Y(0);
-										 negative_reg <= sign_flags_Y(2);
+										 zero_reg <= '0';
+										 negative_reg <= '0';
 									when "0111" => -- XOR
 										 Y_reg <= xor_Y;
 										 carry_out_reg <= '0';
 										 overflow_reg <= '0';
-										 zero_reg <= sign_flags_Y(0);
-										 negative_reg <= sign_flags_Y(2);
+										 zero_reg <= '0';
+										 negative_reg <= '0';
 									when "0101" => -- Shift
 										Y_reg <= shift_Y;
 										carry_out_reg <= '0';
 										overflow_reg <= '0';
-										zero_reg <= sign_flags_Y(0);
-										negative_reg <= sign_flags_Y(2);
+										zero_reg <= '0';
+										negative_reg <= '0';
 									when "0100" => -- Sign
 										Y_reg <= sign_operation_Y;
 										carry_out_reg <= '0';
@@ -229,7 +232,7 @@ begin
 										 carry_out_reg <= '0';
 										 overflow_reg <= '0';
 										 zero_reg <= sign_flags_Y(0);
-										 negative_reg <= sign_flags_Y(2);
+										 negative_reg <= '0';
 									when others =>
 										 Y_reg <= (others => '0');
 										 carry_out_reg <= '0';

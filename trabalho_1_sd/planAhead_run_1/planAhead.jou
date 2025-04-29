@@ -1,0 +1,79 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Tue Apr 29 18:32:09 2025
+# Process ID: 2678
+# Log file: /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/planAhead_run_1/planAhead.log
+# Journal file: /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+set_property iostandard LVCMOS33 [get_ports [list {switches[3]} {switches[2]} {switches[1]} {switches[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {Y[3]} {Y[2]} {Y[1]} {Y[0]}]]
+startgroup
+set_property package_pin T9 [get_ports {switches[3]}]
+endgroup
+startgroup
+set_property package_pin U8 [get_ports {switches[2]}]
+endgroup
+startgroup
+set_property package_pin U10 [get_ports {switches[1]}]
+endgroup
+startgroup
+set_property package_pin U10 [get_ports {switches[1]}]
+endgroup
+startgroup
+set_property package_pin V8 [get_ports {switches[0]}]
+endgroup
+save_constraints
+startgroup
+set_property package_pin U19 [get_ports {Y[3]}]
+endgroup
+startgroup
+set_property package_pin U20 [get_ports {Y[2]}]
+endgroup
+startgroup
+set_property package_pin T19 [get_ports {Y[1]}]
+endgroup
+startgroup
+set_property package_pin R20 [get_ports {Y[0]}]
+endgroup
+startgroup
+set_property package_pin T15 [get_ports button]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list button]]
+startgroup
+set_property package_pin V19 [get_ports carry_out]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list carry_out]]
+startgroup
+set_property package_pin E12 [get_ports clk]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list clk]]
+startgroup
+set_property package_pin E12 [get_ports clk]
+endgroup
+startgroup
+set_property package_pin V20 [get_ports negative]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list negative]]
+startgroup
+set_property package_pin Y22 [get_ports overflow]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list overflow]]
+startgroup
+set_property package_pin W21 [get_ports reset]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list reset]]
+startgroup
+set_property package_pin T18 [get_ports reset]
+endgroup
+startgroup
+set_property package_pin W21 [get_ports zero]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list zero]]
+startgroup
+set_property package_pin T16 [get_ports reset]
+endgroup
+save_constraints

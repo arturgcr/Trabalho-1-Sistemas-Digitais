@@ -1,0 +1,584 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.00 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.00 secs
+ 
+--> 
+Reading design: Main.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Main.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Main"
+Output Format                      : NGC
+Target Device                      : xc3s700an-5-fgg484
+
+---- Source Options
+Top Module Name                    : Main
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/debouncer.vhd" in Library work.
+Architecture behavioral of Entity debouncer is up to date.
+Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd" in Library work.
+Architecture behavioral of Entity addition is up to date.
+Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/subtraction.vhd" in Library work.
+Architecture behavioral of Entity subtraction is up to date.
+Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd" in Library work.
+Architecture behavioral of Entity andoperation is up to date.
+Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd" in Library work.
+Architecture behavioral of Entity oroperation is up to date.
+Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd" in Library work.
+Architecture behavioral of Entity absolute is up to date.
+Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd" in Library work.
+Architecture behavioral of Entity shift is up to date.
+Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd" in Library work.
+Architecture behavioral of Entity xoroperation is up to date.
+Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/sign.vhd" in Library work.
+Architecture behavioral of Entity sign is up to date.
+Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd" in Library work.
+Architecture behavioral of Entity main is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <Main> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <debouncer> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <addition> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <subtraction> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <andOperation> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <orOperation> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <absolute> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <shift> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <xorOperation> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <sign> in library <work> (architecture <Behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <Main> in library <work> (Architecture <behavioral>).
+Entity <Main> analyzed. Unit <Main> generated.
+
+Analyzing Entity <debouncer> in library <work> (Architecture <Behavioral>).
+Entity <debouncer> analyzed. Unit <debouncer> generated.
+
+Analyzing Entity <addition> in library <work> (Architecture <Behavioral>).
+Entity <addition> analyzed. Unit <addition> generated.
+
+Analyzing Entity <subtraction> in library <work> (Architecture <Behavioral>).
+Entity <subtraction> analyzed. Unit <subtraction> generated.
+
+Analyzing Entity <andOperation> in library <work> (Architecture <Behavioral>).
+Entity <andOperation> analyzed. Unit <andOperation> generated.
+
+Analyzing Entity <orOperation> in library <work> (Architecture <Behavioral>).
+Entity <orOperation> analyzed. Unit <orOperation> generated.
+
+Analyzing Entity <absolute> in library <work> (Architecture <Behavioral>).
+Entity <absolute> analyzed. Unit <absolute> generated.
+
+Analyzing Entity <shift> in library <work> (Architecture <Behavioral>).
+Entity <shift> analyzed. Unit <shift> generated.
+
+Analyzing Entity <xorOperation> in library <work> (Architecture <Behavioral>).
+Entity <xorOperation> analyzed. Unit <xorOperation> generated.
+
+Analyzing Entity <sign> in library <work> (Architecture <Behavioral>).
+Entity <sign> analyzed. Unit <sign> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <debouncer>.
+    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/debouncer.vhd".
+    Found 1-bit register for signal <btn_last>.
+    Found 1-bit register for signal <btn_pulse>.
+    Found 19-bit comparator less for signal <btn_pulse$cmp_lt0000> created at line 56.
+    Found 1-bit xor2 for signal <btn_pulse$xor0000> created at line 51.
+    Found 1-bit register for signal <btn_sync_0>.
+    Found 1-bit register for signal <btn_sync_1>.
+    Found 19-bit up counter for signal <counter>.
+    Found 19-bit comparator greatequal for signal <counter$cmp_ge0000> created at line 56.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   4 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <debouncer> synthesized.
+
+
+Synthesizing Unit <addition>.
+    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd".
+    Found 5-bit adder for signal <SUM_signed>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <addition> synthesized.
+
+
+Synthesizing Unit <subtraction>.
+    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/subtraction.vhd".
+    Found 5-bit subtractor for signal <difference>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <subtraction> synthesized.
+
+
+Synthesizing Unit <andOperation>.
+    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd".
+Unit <andOperation> synthesized.
+
+
+Synthesizing Unit <orOperation>.
+    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd".
+Unit <orOperation> synthesized.
+
+
+Synthesizing Unit <absolute>.
+    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd".
+    Found 4-bit adder for signal <Y$addsub0000> created at line 24.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <absolute> synthesized.
+
+
+Synthesizing Unit <shift>.
+    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd".
+    Found 4-bit register for signal <result>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <shift> synthesized.
+
+
+Synthesizing Unit <xorOperation>.
+    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd".
+    Found 4-bit xor2 for signal <Y>.
+Unit <xorOperation> synthesized.
+
+
+Synthesizing Unit <sign>.
+    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/sign.vhd".
+WARNING:Xst:646 - Signal <number> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <sign> synthesized.
+
+
+Synthesizing Unit <Main>.
+    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd".
+WARNING:Xst:646 - Signal <sign_flags_Y<3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sign_flags_Y<1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <btn_prev> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 17                                             |
+    | Inputs             | 10                                             |
+    | Outputs            | 7                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | debounced_reset           (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | reset_state                                    |
+    | Power Up State     | reset_state                                    |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit register for signal <A>.
+    Found 4-bit register for signal <B>.
+    Found 1-bit register for signal <carry_out_reg>.
+    Found 1-bit register for signal <negative_reg>.
+    Found 4-bit register for signal <operation>.
+    Found 1-bit register for signal <overflow_reg>.
+    Found 4-bit register for signal <Y_reg>.
+    Found 1-bit register for signal <zero_reg>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  20 D-type flip-flop(s).
+Unit <Main> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 3
+ 4-bit adder                                           : 1
+ 5-bit adder                                           : 1
+ 5-bit subtractor                                      : 1
+# Counters                                             : 2
+ 19-bit up counter                                     : 2
+# Registers                                            : 17
+ 1-bit register                                        : 12
+ 4-bit register                                        : 5
+# Comparators                                          : 4
+ 19-bit comparator greatequal                          : 2
+ 19-bit comparator less                                : 2
+# Xors                                                 : 3
+ 1-bit xor2                                            : 2
+ 4-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <state/FSM> on signal <state[1:3]> with gray encoding.
+----------------------------
+ State          | Encoding
+----------------------------
+ reset_state    | 000
+ load_operation | 001
+ load_a         | 011
+ load_b         | 010
+ show_results   | 110
+----------------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 3
+ 4-bit adder                                           : 1
+ 5-bit adder                                           : 1
+ 5-bit subtractor                                      : 1
+# Counters                                             : 2
+ 19-bit up counter                                     : 2
+# Registers                                            : 32
+ Flip-Flops                                            : 32
+# Comparators                                          : 4
+ 19-bit comparator greatequal                          : 2
+ 19-bit comparator less                                : 2
+# Xors                                                 : 3
+ 1-bit xor2                                            : 2
+ 4-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <Main> ...
+
+Optimizing unit <debouncer> ...
+
+Optimizing unit <shift> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Main, actual ratio is 1.
+FlipFlop operation_0 has been replicated 1 time(s)
+FlipFlop operation_2 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+Processing Unit <Main> :
+	Found 2-bit shift register for signal <debouncer_reset_inst/btn_sync_1>.
+	Found 2-bit shift register for signal <debouncer_btn_inst/btn_sync_1>.
+Unit <Main> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 71
+ Flip-Flops                                            : 71
+# Shift Registers                                      : 2
+ 2-bit shift register                                  : 2
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Main.ngr
+Top Level Output File Name         : Main
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 15
+
+Cell Usage :
+# BELS                             : 240
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 42
+#      LUT2                        : 5
+#      LUT2_D                      : 1
+#      LUT2_L                      : 2
+#      LUT3                        : 19
+#      LUT3_D                      : 4
+#      LUT3_L                      : 5
+#      LUT4                        : 45
+#      LUT4_D                      : 11
+#      LUT4_L                      : 8
+#      MUXCY                       : 50
+#      MUXF5                       : 4
+#      VCC                         : 1
+#      XORCY                       : 38
+# FlipFlops/Latches                : 73
+#      FD                          : 6
+#      FDE                         : 2
+#      FDR                         : 42
+#      FDRE                        : 12
+#      FDRS                        : 5
+#      FDSE                        : 6
+# Shift Registers                  : 2
+#      SRL16                       : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 14
+#      IBUF                        : 6
+#      OBUF                        : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s700anfgg484-5 
+
+ Number of Slices:                       78  out of   5888     1%  
+ Number of Slice Flip Flops:             73  out of  11776     0%  
+ Number of 4 input LUTs:                148  out of  11776     1%  
+    Number used as logic:               146
+    Number used as Shift registers:       2
+ Number of IOs:                          15
+ Number of bonded IOBs:                  15  out of    372     4%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 75    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 4.997ns (Maximum Frequency: 200.124MHz)
+   Minimum input arrival time before clock: 2.738ns
+   Maximum output required time after clock: 5.390ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.997ns (frequency: 200.124MHz)
+  Total number of paths / destination ports: 1498 / 149
+-------------------------------------------------------------------------
+Delay:               4.997ns (Levels of Logic = 4)
+  Source:            A_0 (FF)
+  Destination:       Y_reg_3 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: A_0 to Y_reg_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q            14   0.495   0.873  A_0 (A_0)
+     LUT4_D:I2->O          2   0.561   0.382  add_inst/Madd_SUM_signed_cy<1>11 (add_inst/Madd_SUM_signed_cy<1>)
+     LUT4:I3->O            2   0.561   0.382  add_inst/Madd_SUM_signed_xor<3>11 (add_Y<3>)
+     LUT4:I3->O            1   0.561   0.423  Y_reg_mux0000<3>77_SW0 (N26)
+     LUT4:I1->O            1   0.562   0.000  Y_reg_mux0000<3>1111 (Y_reg_mux0000<3>111)
+     FDRS:D                    0.197          Y_reg_3
+    ----------------------------------------
+    Total                      4.997ns (2.937ns logic, 2.060ns route)
+                                       (58.8% logic, 41.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 20 / 20
+-------------------------------------------------------------------------
+Offset:              2.738ns (Levels of Logic = 2)
+  Source:            switches<0> (PAD)
+  Destination:       Y_reg_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: switches<0> to Y_reg_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             5   0.824   0.561  switches_0_IBUF (switches_0_IBUF)
+     LUT4:I2->O            1   0.561   0.357  Y_reg_mux0000<0>7 (Y_reg_mux0000<0>7)
+     FDRS:S                    0.435          Y_reg_0
+    ----------------------------------------
+    Total                      2.738ns (1.820ns logic, 0.918ns route)
+                                       (66.5% logic, 33.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              5.390ns (Levels of Logic = 1)
+  Source:            Y_reg_3 (FF)
+  Destination:       Y<3> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: Y_reg_3 to Y<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRS:C->Q             4   0.495   0.499  Y_reg_3 (Y_reg_3)
+     OBUF:I->O                 4.396          Y_3_OBUF (Y<3>)
+    ----------------------------------------
+    Total                      5.390ns (4.891ns logic, 0.499ns route)
+                                       (90.7% logic, 9.3% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 1.18 secs
+ 
+--> 
+
+
+Total memory usage is 615384 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

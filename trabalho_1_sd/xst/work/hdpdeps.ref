@@ -1,52 +1,81 @@
-V3 27
-FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd 2025/04/25.21:46:02 P.20131013
-EN work/absolute 1745766286 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd \
+V3 46
+FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd 2025/04/25.14:55:44 P.20131013
+EN work/absolute 1745954252 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/std_logic_arith 1381692177 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179
-AR work/absolute/Behavioral 1745766287 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd \
-      EN work/absolute 1745766286
+AR work/absolute/Behavioral 1745954253 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd \
+      EN work/absolute 1745954252
+FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd 2025/04/27.13:07:11 P.20131013
+EN work/addition 1745954244 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/addition/Behavioral 1745954245 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd \
+      EN work/addition 1745954244
+FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd 2025/04/27.15:59:24 P.20131013
+EN work/andOperation 1745954248 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/andOperation/Behavioral 1745954249 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd \
+      EN work/andOperation 1745954248
+FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/debouncer.vhd 2025/04/25.14:22:12 P.20131013
+EN work/debouncer 1745954242 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/debouncer.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179
+AR work/debouncer/Behavioral 1745954243 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/debouncer.vhd \
+      EN work/debouncer 1745954242
+FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd 2025/04/29.19:16:27 P.20131013
+EN work/Main 1745954260 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/Main/Behavioral 1745954261 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd \
+      EN work/Main 1745954260 CP work/debouncer CP work/addition \
+      CP work/subtraction CP work/andOperation CP work/orOperation CP work/absolute \
+      CP work/shift CP work/xorOperation CP work/sign
+FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd 2025/04/27.15:59:25 P.20131013
+EN work/orOperation 1745954250 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/orOperation/Behavioral 1745954251 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd \
+      EN work/orOperation 1745954250
+FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd 2025/04/27.15:59:25 P.20131013
+EN work/shift 1745954254 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/shift/Behavioral 1745954255 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd \
+      EN work/shift 1745954254
+FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/sign.vhd 2025/04/27.15:59:25 P.20131013
+EN work/sign 1745954258 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/sign.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/sign/Behavioral 1745954259 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/sign.vhd \
+      EN work/sign 1745954258
+FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/subtraction.vhd 2025/04/29.18:28:31 P.20131013
+EN work/subtraction 1745954246 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/subtraction.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/subtraction/Behavioral 1745954247 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/subtraction.vhd \
+      EN work/subtraction 1745954246
+FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd 2025/04/27.15:59:25 P.20131013
+EN work/xorOperation 1745954256 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/xorOperation/Behavioral 1745954257 \
+      FL /home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd \
+      EN work/xorOperation 1745954256
+FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd 2025/04/25.21:46:02 P.20131013
 FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd 2025/04/26.21:52:11 P.20131013
-EN work/addition 1745766280 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd \
-      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
-AR work/addition/Behavioral 1745766281 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd \
-      EN work/addition 1745766280
 FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd 2025/04/27.10:13:17 P.20131013
-EN work/andOperation 1745766282 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd \
-      PB ieee/std_logic_1164 1381692176
-AR work/andOperation/Behavioral 1745766283 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd \
-      EN work/andOperation 1745766282
 FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd 2025/04/27.12:04:37 P.20131013
-EN work/Main 1745766292 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd \
-      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
-AR work/Main/Behavioral 1745766293 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd \
-      EN work/Main 1745766292 CP work/addition CP work/andOperation \
-      CP work/orOperation CP work/absolute CP work/shift CP work/xorOperation
 FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd 2025/04/27.10:13:17 P.20131013
-EN work/orOperation 1745766284 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd \
-      PB ieee/std_logic_1164 1381692176
-AR work/orOperation/Behavioral 1745766285 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd \
-      EN work/orOperation 1745766284
 FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd 2025/04/27.10:13:17 P.20131013
-EN work/shift 1745766288 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd \
-      PB ieee/std_logic_1164 1381692176
-AR work/shift/Behavioral 1745766289 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd \
-      EN work/shift 1745766288
 FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd 2025/04/27.10:55:25 P.20131013
-EN work/xorOperation 1745766290 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd \
-      PB ieee/std_logic_1164 1381692176
-AR work/xorOperation/Behavioral 1745766291 \
-      FL C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd \
-      EN work/xorOperation 1745766290
