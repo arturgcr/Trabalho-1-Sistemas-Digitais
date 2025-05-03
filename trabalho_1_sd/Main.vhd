@@ -38,7 +38,7 @@ architecture Behavioral of Main is
     signal and_Y        : std_logic_vector(3 downto 0);
     signal or_Y         : std_logic_vector(3 downto 0);
 	 signal sign_flags_Y         : std_logic_vector(3 downto 0);
-	 signal sign_operation_Y         : std_logic_vector(3 downto 0);
+	 signal comparison_operation_Y         : std_logic_vector(3 downto 0);
     signal add_carry_out: std_logic;
     signal add_overflow : std_logic;
 	 signal subtract_borrow_out: std_logic;
@@ -130,10 +130,11 @@ begin
         Y   => sign_flags_Y
     );
 	 
-	 sign_operation_inst : entity work.sign
+	 comparison_operation_inst : entity work.comparator
     port map (
         A   => A,
-        Y   => sign_operation_Y
+		  B   => B,
+        Y   => comparison_operation_Y
     );
 
     -- State Transition Logic
@@ -167,9 +168,9 @@ begin
 							 if debounced_btn = '1' then
 								  A <= switches;
 								  case operation is
-										when "0000" | "0001" | "0011" | "0010" | "0110" | "0111" | "0101"  =>
-											 state <= LOAD_B;         -- These need two operands
-										when "0100" | "1100" =>
+										when "0000" | "0001" | "0011" | "0010" | "0110" | "0111" | "0101" | "0100" =>
+											 state <= LOAD_B;         -- Double operand operations
+										when "1100" =>
 											 state <= SHOW_RESULTS;   -- Single operand operations
 										when others =>
 											 state <= RESET_STATE;
@@ -221,8 +222,8 @@ begin
 										overflow_reg <= '0';
 										zero_reg <= '0';
 										negative_reg <= '0';
-									when "0100" => -- Sign
-										Y_reg <= sign_operation_Y;
+									when "0100" => -- Comparatpr
+										Y_reg <= comparison_operation_Y;
 										carry_out_reg <= '0';
 										overflow_reg <= '0';
 										zero_reg <= '0';

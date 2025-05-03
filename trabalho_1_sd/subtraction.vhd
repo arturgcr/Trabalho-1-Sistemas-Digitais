@@ -17,7 +17,6 @@ architecture Behavioral of subtraction is
     signal difference  : signed(4 downto 0) := (others => '0');  -- 5-bit difference for borrow
 
 begin
-    -- FSM process, reset becomes a state
 	A_signed <= signed(A);
    B_signed <= signed(B);
    -- Perform subtraction: A - B

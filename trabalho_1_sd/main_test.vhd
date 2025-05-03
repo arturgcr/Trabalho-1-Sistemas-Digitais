@@ -17,12 +17,10 @@ architecture Behavioral of Main_tb is
 	 signal zero  : std_logic;
     signal negative   : std_logic;
 
-    -- Signals for the operation codes and operands
     signal op_code    : std_logic_vector(3 downto 0) := (others => '0');
     signal operand_A  : std_logic_vector(3 downto 0) := (others => '0');
     signal operand_B  : std_logic_vector(3 downto 0) := (others => '0');
 
-    -- Clock period constant
     constant CLK_PERIOD : time := 20 ns;
 	 constant WAIT_TIME : time :=15 ms;
 
@@ -50,8 +48,8 @@ architecture Behavioral of Main_tb is
 			 button <= '0';
 			 wait for WAIT_TIME;
 
-			 -- Load operand B only if operation_code is not "0100" or "1100"
-			 if (operation_code /= "0100") and (operation_code /= "1100") then
+			 -- Load operand B only if operation_code is not "1100"
+			 if (operation_code /= "1100") then
 				  switches <= operand_B;
 				  wait for WAIT_TIME;
 				  button <= '1';
@@ -152,11 +150,11 @@ begin
         -- Execute subtraction operation
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 		  
-		  op_code <= "0100";  -- sign operation code
+		  op_code <= "0100";  -- comparison operation code
         operand_A <= "1010"; -- -6
-        operand_B <= "0000"; -- not used
+        operand_B <= "0000"; -- 0
         wait for WAIT_TIME;
-        -- Execute subtraction operation
+        -- Execute comparison operation
         load_and_execute(button, switches, op_code, operand_A, operand_B, reset);
 
         -- End simulation

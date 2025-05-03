@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
--- ADDITION MODULE
+
 entity addition is
     Port (
         A         : in  std_logic_vector(3 downto 0);
@@ -24,7 +24,6 @@ begin
     Y <= std_logic_vector(SUM_signed(3 downto 0)); -- Output lower 4 bits
     carry_out <= SUM_signed(4); -- 5th bit is the carry out
 
-    -- Overflow detection for 2's complement addition
     overflow <= (A_signed(3) and B_signed(3) and not SUM_signed(3)) or
                 (not A_signed(3) and not B_signed(3) and SUM_signed(3));
 

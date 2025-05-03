@@ -16,7 +16,6 @@ architecture Behavioral of sign is
 begin
 	 number <= signed(A);
 
-	 -- Check number properties
 	 led0 <= '1' when A = "0000" else '0';  -- Zero
 	 Y(0) <= led0;
 	 Y(1) <= '1' when A(3) = '0' and A /= "0000" else '0';  -- Positive

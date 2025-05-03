@@ -1,14 +1,3 @@
--- Engineer: Artur, Micaela, Rafael
--- University: UFRJ
--- Project: EEL480 - Practical Assignment 1 (ULA with FSM)
--- Module: debouncer.vhd
--- Description:
---     This module removes bouncing effects from a mechanical button input.
---     When the button is pressed, it filters out the spurious transitions
---     (caused by mechanical contact instability) and produces a clean pulse.
---     The output is a single-cycle pulse (one clock tick) for each valid press.
---     This version assumes a 50 MHz clock and a debounce time of ~10ms.
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
@@ -26,7 +15,6 @@ architecture Behavioral of debouncer is
     -- Constants
     constant DEBOUNCE_LIMIT : INTEGER := 500000;  -- ~10ms at 50MHz (50e6 * 0.01)
 
-    -- Internal signals
     signal counter    : INTEGER range 0 to DEBOUNCE_LIMIT := 0;
     signal btn_sync_0 : STD_LOGIC := '0';
     signal btn_sync_1 : STD_LOGIC := '0';

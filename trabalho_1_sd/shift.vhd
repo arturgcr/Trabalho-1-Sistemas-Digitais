@@ -1,15 +1,5 @@
 -- Engineer: Artur, Micaela, Rafael
 -- University: UFRJ
--- Project: EEL480 - Practical Assignment 1 (ULA with FSM)
--- Module: shift.vhd
--- Description: 
---     This module performs a logical shift operation on a 4-bit input (A).
---     The direction of the shift is determined by the 4-bit control input (B).
---     - If B = "0000", A is shifted left by 1 bit.
---     - If B = "0001", A is shifted right by 1 bit.
---     - Otherwise, A is unchanged.
---     The output Y represents the shifted value and is intended to be connected to 4 LEDs.
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 

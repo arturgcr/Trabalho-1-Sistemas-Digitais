@@ -12,7 +12,6 @@ end absolute;
 
 architecture Behavioral of absolute is
 begin
-
     process(A)
         variable temp : STD_LOGIC_VECTOR(3 downto 0);
     begin
