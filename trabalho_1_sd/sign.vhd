@@ -10,12 +10,9 @@ entity sign is
 end sign;
 
 architecture Behavioral of sign is
-    signal number   : signed(3 downto 0) := (others => '0');
 	 signal led0   : std_logic;
 	 
 begin
-	 number <= signed(A);
-
 	 led0 <= '1' when A = "0000" else '0';  -- Zero
 	 Y(0) <= led0;
 	 Y(1) <= '1' when A(3) = '0' and A /= "0000" else '0';  -- Positive

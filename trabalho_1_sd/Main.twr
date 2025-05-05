@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
-Release 14.7 Trace  (lin64)
+Release 14.7 Trace  (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 5 -n
-3 -fastpaths -xml Main.twx Main.ncd -o Main.twr Main.pcf -ucf Main.ucf
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 5
+-n 3 -fastpaths -xml Main.twx Main.ncd -o Main.twr Main.pcf -ucf Main.ucf
 
 Design file:              Main.ncd
 Physical constraint file: Main.pcf
@@ -44,12 +44,12 @@ Setup/Hold to clock clk
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-button      |    0.707(R)|    0.408(R)|clk_BUFGP         |   0.000|
-reset       |    0.525(R)|    0.553(R)|clk_BUFGP         |   0.000|
-switches<0> |    3.259(R)|   -0.008(R)|clk_BUFGP         |   0.000|
-switches<1> |    2.006(R)|    0.311(R)|clk_BUFGP         |   0.000|
-switches<2> |    3.039(R)|   -0.216(R)|clk_BUFGP         |   0.000|
-switches<3> |    2.719(R)|    0.103(R)|clk_BUFGP         |   0.000|
+button      |    0.706(R)|    0.409(R)|clk_BUFGP         |   0.000|
+reset       |    0.528(R)|    0.552(R)|clk_BUFGP         |   0.000|
+switches<0> |    2.563(R)|   -0.210(R)|clk_BUFGP         |   0.000|
+switches<1> |    2.575(R)|    0.175(R)|clk_BUFGP         |   0.000|
+switches<2> |    3.825(R)|   -0.445(R)|clk_BUFGP         |   0.000|
+switches<3> |    3.259(R)|    0.227(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock clk to Pad
@@ -57,14 +57,14 @@ Clock clk to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-Y<0>        |    9.813(R)|clk_BUFGP         |   0.000|
-Y<1>        |    9.166(R)|clk_BUFGP         |   0.000|
-Y<2>        |    8.691(R)|clk_BUFGP         |   0.000|
-Y<3>        |    9.086(R)|clk_BUFGP         |   0.000|
-carry_out   |    8.365(R)|clk_BUFGP         |   0.000|
+Y<0>        |    8.703(R)|clk_BUFGP         |   0.000|
+Y<1>        |    9.411(R)|clk_BUFGP         |   0.000|
+Y<2>        |    8.712(R)|clk_BUFGP         |   0.000|
+Y<3>        |    9.214(R)|clk_BUFGP         |   0.000|
+carry_out   |    9.046(R)|clk_BUFGP         |   0.000|
 negative    |    7.973(R)|clk_BUFGP         |   0.000|
-overflow    |    9.072(R)|clk_BUFGP         |   0.000|
-zero        |    8.254(R)|clk_BUFGP         |   0.000|
+overflow    |    9.127(R)|clk_BUFGP         |   0.000|
+zero        |    8.270(R)|clk_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock clk
@@ -72,18 +72,18 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |    4.537|         |         |         |
+clk            |    4.728|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Tue Apr 29 19:18:20 2025 
+Analysis completed Mon May 05 19:34:15 2025 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 379 MB
+Peak Memory Usage: 4528 MB
 
 
 

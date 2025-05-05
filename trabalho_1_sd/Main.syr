@@ -1,21 +1,18 @@
-Release 14.7 - xst P.20131013 (lin64)
+Release 14.7 - xst P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
---> 
-Parameter TMPDIR set to xst/projnav.tmp
+--> Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
  
---> 
-Parameter xsthdpdir set to xst
+--> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
  
---> 
-Reading design: Main.prj
+--> Reading design: Main.prj
 
 TABLE OF CONTENTS
   1) Synthesis Options Summary
@@ -107,25 +104,27 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/debouncer.vhd" in Library work.
+Compiling vhdl file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/debouncer.vhd" in Library work.
 Architecture behavioral of Entity debouncer is up to date.
-Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd" in Library work.
+Compiling vhdl file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd" in Library work.
 Architecture behavioral of Entity addition is up to date.
-Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/subtraction.vhd" in Library work.
+Compiling vhdl file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/subtraction.vhd" in Library work.
 Architecture behavioral of Entity subtraction is up to date.
-Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd" in Library work.
+Compiling vhdl file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd" in Library work.
 Architecture behavioral of Entity andoperation is up to date.
-Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd" in Library work.
+Compiling vhdl file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd" in Library work.
 Architecture behavioral of Entity oroperation is up to date.
-Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd" in Library work.
+Compiling vhdl file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd" in Library work.
 Architecture behavioral of Entity absolute is up to date.
-Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd" in Library work.
+Compiling vhdl file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd" in Library work.
 Architecture behavioral of Entity shift is up to date.
-Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd" in Library work.
+Compiling vhdl file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd" in Library work.
 Architecture behavioral of Entity xoroperation is up to date.
-Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/sign.vhd" in Library work.
+Compiling vhdl file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/sign.vhd" in Library work.
 Architecture behavioral of Entity sign is up to date.
-Compiling vhdl file "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd" in Library work.
+Compiling vhdl file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/comparator.vhd" in Library work.
+Architecture behavioral of Entity comparator is up to date.
+Compiling vhdl file "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd" in Library work.
 Architecture behavioral of Entity main is up to date.
 
 =========================================================================
@@ -150,6 +149,8 @@ Analyzing hierarchy for entity <shift> in library <work> (architecture <Behavior
 Analyzing hierarchy for entity <xorOperation> in library <work> (architecture <Behavioral>).
 
 Analyzing hierarchy for entity <sign> in library <work> (architecture <Behavioral>).
+
+Analyzing hierarchy for entity <Comparator> in library <work> (architecture <Behavioral>).
 
 
 =========================================================================
@@ -185,6 +186,9 @@ Entity <xorOperation> analyzed. Unit <xorOperation> generated.
 Analyzing Entity <sign> in library <work> (Architecture <Behavioral>).
 Entity <sign> analyzed. Unit <sign> generated.
 
+Analyzing Entity <Comparator> in library <work> (Architecture <Behavioral>).
+Entity <Comparator> analyzed. Unit <Comparator> generated.
+
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -193,15 +197,15 @@ Entity <sign> analyzed. Unit <sign> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <debouncer>.
-    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/debouncer.vhd".
+    Related source file is "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/debouncer.vhd".
     Found 1-bit register for signal <btn_last>.
     Found 1-bit register for signal <btn_pulse>.
-    Found 19-bit comparator less for signal <btn_pulse$cmp_lt0000> created at line 56.
-    Found 1-bit xor2 for signal <btn_pulse$xor0000> created at line 51.
+    Found 19-bit comparator less for signal <btn_pulse$cmp_lt0000> created at line 44.
+    Found 1-bit xor2 for signal <btn_pulse$xor0000> created at line 39.
     Found 1-bit register for signal <btn_sync_0>.
     Found 1-bit register for signal <btn_sync_1>.
     Found 19-bit up counter for signal <counter>.
-    Found 19-bit comparator greatequal for signal <counter$cmp_ge0000> created at line 56.
+    Found 19-bit comparator greatequal for signal <counter$cmp_ge0000> created at line 44.
     Summary:
 	inferred   1 Counter(s).
 	inferred   4 D-type flip-flop(s).
@@ -210,7 +214,7 @@ Unit <debouncer> synthesized.
 
 
 Synthesizing Unit <addition>.
-    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd".
+    Related source file is "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/addtion.vhd".
     Found 5-bit adder for signal <SUM_signed>.
     Summary:
 	inferred   1 Adder/Subtractor(s).
@@ -218,7 +222,7 @@ Unit <addition> synthesized.
 
 
 Synthesizing Unit <subtraction>.
-    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/subtraction.vhd".
+    Related source file is "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/subtraction.vhd".
     Found 5-bit subtractor for signal <difference>.
     Summary:
 	inferred   1 Adder/Subtractor(s).
@@ -226,25 +230,25 @@ Unit <subtraction> synthesized.
 
 
 Synthesizing Unit <andOperation>.
-    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd".
+    Related source file is "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/and.vhd".
 Unit <andOperation> synthesized.
 
 
 Synthesizing Unit <orOperation>.
-    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd".
+    Related source file is "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/or.vhd".
 Unit <orOperation> synthesized.
 
 
 Synthesizing Unit <absolute>.
-    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd".
-    Found 4-bit adder for signal <Y$addsub0000> created at line 24.
+    Related source file is "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/absolute.vhd".
+    Found 4-bit adder for signal <Y$addsub0000> created at line 23.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 Unit <absolute> synthesized.
 
 
 Synthesizing Unit <shift>.
-    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd".
+    Related source file is "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/shift.vhd".
     Found 4-bit register for signal <result>.
     Summary:
 	inferred   4 D-type flip-flop(s).
@@ -252,22 +256,29 @@ Unit <shift> synthesized.
 
 
 Synthesizing Unit <xorOperation>.
-    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd".
+    Related source file is "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/xor.vhd".
     Found 4-bit xor2 for signal <Y>.
 Unit <xorOperation> synthesized.
 
 
 Synthesizing Unit <sign>.
-    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/sign.vhd".
-WARNING:Xst:646 - Signal <number> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Related source file is "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/sign.vhd".
 Unit <sign> synthesized.
 
 
+Synthesizing Unit <Comparator>.
+    Related source file is "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/comparator.vhd".
+    Found 4-bit comparator equal for signal <Y$cmp_eq0000> created at line 25.
+    Found 4-bit comparator less for signal <Y$cmp_lt0000> created at line 24.
+    Summary:
+	inferred   2 Comparator(s).
+Unit <Comparator> synthesized.
+
+
 Synthesizing Unit <Main>.
-    Related source file is "/home/ise/VirtualBox/1-Relatorio-SD/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd".
+    Related source file is "C:/Users/rafam/Documents/Trabalho-1-Sistemas-Digitais/trabalho_1_sd/Main.vhd".
 WARNING:Xst:646 - Signal <sign_flags_Y<3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <sign_flags_Y<1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:1780 - Signal <btn_prev> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 5                                              |
@@ -309,9 +320,11 @@ Macro Statistics
 # Registers                                            : 17
  1-bit register                                        : 12
  4-bit register                                        : 5
-# Comparators                                          : 4
+# Comparators                                          : 6
  19-bit comparator greatequal                          : 2
  19-bit comparator less                                : 2
+ 4-bit comparator equal                                : 1
+ 4-bit comparator less                                 : 1
 # Xors                                                 : 3
  1-bit xor2                                            : 2
  4-bit xor2                                            : 1
@@ -347,9 +360,11 @@ Macro Statistics
  19-bit up counter                                     : 2
 # Registers                                            : 32
  Flip-Flops                                            : 32
-# Comparators                                          : 4
+# Comparators                                          : 6
  19-bit comparator greatequal                          : 2
  19-bit comparator less                                : 2
+ 4-bit comparator equal                                : 1
+ 4-bit comparator less                                 : 1
 # Xors                                                 : 3
  1-bit xor2                                            : 2
  4-bit xor2                                            : 1
@@ -370,7 +385,7 @@ Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block Main, actual ratio is 1.
 FlipFlop operation_0 has been replicated 1 time(s)
-FlipFlop operation_2 has been replicated 1 time(s)
+FlipFlop operation_1 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -415,29 +430,29 @@ Design Statistics
 # IOs                              : 15
 
 Cell Usage :
-# BELS                             : 240
+# BELS                             : 245
 #      GND                         : 1
 #      INV                         : 4
 #      LUT1                        : 42
-#      LUT2                        : 5
-#      LUT2_D                      : 1
+#      LUT2                        : 8
+#      LUT2_D                      : 2
 #      LUT2_L                      : 2
-#      LUT3                        : 19
-#      LUT3_D                      : 4
-#      LUT3_L                      : 5
-#      LUT4                        : 45
-#      LUT4_D                      : 11
-#      LUT4_L                      : 8
+#      LUT3                        : 17
+#      LUT3_D                      : 2
+#      LUT3_L                      : 2
+#      LUT4                        : 55
+#      LUT4_D                      : 9
+#      LUT4_L                      : 9
 #      MUXCY                       : 50
-#      MUXF5                       : 4
+#      MUXF5                       : 3
 #      VCC                         : 1
 #      XORCY                       : 38
 # FlipFlops/Latches                : 73
 #      FD                          : 6
 #      FDE                         : 2
-#      FDR                         : 42
+#      FDR                         : 41
 #      FDRE                        : 12
-#      FDRS                        : 5
+#      FDRS                        : 6
 #      FDSE                        : 6
 # Shift Registers                  : 2
 #      SRL16                       : 2
@@ -453,10 +468,10 @@ Device utilization summary:
 
 Selected Device : 3s700anfgg484-5 
 
- Number of Slices:                       78  out of   5888     1%  
+ Number of Slices:                       81  out of   5888     1%  
  Number of Slice Flip Flops:             73  out of  11776     0%  
- Number of 4 input LUTs:                148  out of  11776     1%  
-    Number used as logic:               146
+ Number of 4 input LUTs:                154  out of  11776     1%  
+    Number used as logic:               152
     Number used as Shift registers:       2
  Number of IOs:                          15
  Number of bonded IOBs:                  15  out of    372     4%  
@@ -494,8 +509,8 @@ Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 4.997ns (Maximum Frequency: 200.124MHz)
-   Minimum input arrival time before clock: 2.738ns
+   Minimum period: 5.614ns (Maximum Frequency: 178.126MHz)
+   Minimum input arrival time before clock: 3.401ns
    Maximum output required time after clock: 5.390ns
    Maximum combinational path delay: No path found
 
@@ -505,48 +520,50 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 4.997ns (frequency: 200.124MHz)
-  Total number of paths / destination ports: 1498 / 149
+  Clock period: 5.614ns (frequency: 178.126MHz)
+  Total number of paths / destination ports: 1521 / 150
 -------------------------------------------------------------------------
-Delay:               4.997ns (Levels of Logic = 4)
-  Source:            A_0 (FF)
-  Destination:       Y_reg_3 (FF)
+Delay:               5.614ns (Levels of Logic = 5)
+  Source:            A_1 (FF)
+  Destination:       Y_reg_1 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: A_0 to Y_reg_3
+  Data Path: A_1 to Y_reg_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q            14   0.495   0.873  A_0 (A_0)
-     LUT4_D:I2->O          2   0.561   0.382  add_inst/Madd_SUM_signed_cy<1>11 (add_inst/Madd_SUM_signed_cy<1>)
-     LUT4:I3->O            2   0.561   0.382  add_inst/Madd_SUM_signed_xor<3>11 (add_Y<3>)
-     LUT4:I3->O            1   0.561   0.423  Y_reg_mux0000<3>77_SW0 (N26)
-     LUT4:I1->O            1   0.562   0.000  Y_reg_mux0000<3>1111 (Y_reg_mux0000<3>111)
-     FDRS:D                    0.197          Y_reg_3
+     FDRE:C->Q            14   0.495   0.916  A_1 (A_1)
+     LUT2:I1->O            1   0.562   0.380  add_inst/Madd_SUM_signed_lut<1>1 (add_inst/Madd_SUM_signed_lut<1>)
+     LUT4:I2->O            1   0.561   0.359  Y_reg_mux0000<1>30_SW0 (N48)
+     LUT4:I3->O            1   0.561   0.359  Y_reg_mux0000<1>30 (Y_reg_mux0000<1>30)
+     LUT4_L:I3->LO         1   0.561   0.102  Y_reg_mux0000<1>102_SW0 (N12)
+     LUT4:I3->O            1   0.561   0.000  Y_reg_mux0000<1>1701 (Y_reg_mux0000<1>170)
+     FDRS:D                    0.197          Y_reg_1
     ----------------------------------------
-    Total                      4.997ns (2.937ns logic, 2.060ns route)
-                                       (58.8% logic, 41.2% route)
+    Total                      5.614ns (3.498ns logic, 2.116ns route)
+                                       (62.3% logic, 37.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 20 / 20
+  Total number of paths / destination ports: 21 / 20
 -------------------------------------------------------------------------
-Offset:              2.738ns (Levels of Logic = 2)
-  Source:            switches<0> (PAD)
-  Destination:       Y_reg_0 (FF)
+Offset:              3.401ns (Levels of Logic = 3)
+  Source:            switches<3> (PAD)
+  Destination:       Y_reg_3 (FF)
   Destination Clock: clk rising
 
-  Data Path: switches<0> to Y_reg_0
+  Data Path: switches<3> to Y_reg_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             5   0.824   0.561  switches_0_IBUF (switches_0_IBUF)
-     LUT4:I2->O            1   0.561   0.357  Y_reg_mux0000<0>7 (Y_reg_mux0000<0>7)
-     FDRS:S                    0.435          Y_reg_0
+     IBUF:I->O             5   0.824   0.540  switches_3_IBUF (switches_3_IBUF)
+     LUT4_L:I3->LO         1   0.561   0.123  Y_reg_mux0000<3>15 (Y_reg_mux0000<3>15)
+     LUT4:I2->O            1   0.561   0.357  Y_reg_mux0000<3>27 (Y_reg_mux0000<3>27)
+     FDRS:S                    0.435          Y_reg_3
     ----------------------------------------
-    Total                      2.738ns (1.820ns logic, 0.918ns route)
-                                       (66.5% logic, 33.5% route)
+    Total                      3.401ns (2.381ns logic, 1.020ns route)
+                                       (70.0% logic, 30.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -570,15 +587,14 @@ Offset:              5.390ns (Levels of Logic = 1)
 =========================================================================
 
 
-Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 1.18 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.62 secs
  
 --> 
 
-
-Total memory usage is 615384 kilobytes
+Total memory usage is 4513892 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    4 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

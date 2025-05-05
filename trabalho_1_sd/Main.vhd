@@ -20,7 +20,6 @@ architecture Behavioral of Main is
     type state_type is (RESET_STATE, LOAD_OPERATION, LOAD_A, LOAD_B, SHOW_RESULTS);
 
     signal state        : state_type := RESET_STATE;
-    signal btn_prev     : std_logic := '0';
 
     signal operation    : std_logic_vector(3 downto 0) := (others => '1');
     signal A, B         : std_logic_vector(3 downto 0) := (others => '0');
